@@ -1,16 +1,12 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-
-import MyNavbar from './components/MyNavbar';
-import MyFooter from './components/MyFooter';
-
+import Index from './components/IndexLayout/Index'
 function App() {
-  return ( <>
+  return ( 
     <div className="App">
-    <MyNavbar/>
-    <MyFooter/>
+    <Index />
     </div>
-    </> );
+     );
 
   }
 export default App;
