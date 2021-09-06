@@ -1,14 +1,11 @@
-import logo from "./logo.svg";
-import "./App.css";
-import Dashboard from "./Dashboard";
-import "bootstrap/dist/css/bootstrap.min.css";
-
+import 'bootstrap/dist/css/bootstrap.min.css';
+import './App.css';
+import Index from './components/IndexLayout/Index'
 function App() {
-  return (
+  return ( 
     <div className="App">
-      <Dashboard />
+    <Index />
     </div>
-  );
-}
-
+     );
+  }
 export default App;
