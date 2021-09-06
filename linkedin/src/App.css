@@ -87,6 +87,12 @@ body {
   font-size: small;
 }
 
+/* SIDEBAR CSS */
+
+#sideBorderRadius {
+  border-radius: 10px;
+}
+
 /* NAVBAR CSS */
 
 #navbarImg {
