@@ -1,14 +1,12 @@
-
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
 import Index from './components/IndexLayout/Index'
-
 function App() {
-  return (
-    <div>
-      <Index />
+  return ( 
+    <div className="App">
+    <Index />
     </div>
-  );
-}
+     );
 
+  }
 export default App;

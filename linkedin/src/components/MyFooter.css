@@ -1,0 +1,22 @@
+.Footer {
+  position: absolute;
+  left: 0;
+  bottom: 0;
+  right: 0;
+  color: gray;
+  text-decoration-color: gray;
+}
+
+.linked {
+  font-size: 20px;
+}
+
+.Questions {
+  font-size: 12px;
+}
+.Manage {
+  font-size: 12px;
+}
+.copyright {
+  margin-left: 0px;
+}
