@@ -4,7 +4,7 @@ const ProfilePicture = () =>
         <div>
                 <img
                 id="profileImage"
-                src="https://avatars.githubusercontent.com/u/86473615?v=4"
+                src="https://www.hopebylena.se/wp-content/uploads/2017/01/placeholder-user.png"
                 />
         </div>
 

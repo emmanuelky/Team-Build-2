@@ -9,7 +9,7 @@
   width: 160px;
   height: 160px;
   position: absolute;
-  bottom: 250px;
+  bottom: 280px;
   left: 25px;
 }
 
@@ -20,7 +20,7 @@ body {
 #summaryContainer {
   border-radius: 10px;
   width: 800px;
-  height: 500px;
+  height: 530px;
   background-color: white;
   padding: 0;
   position: relative;
@@ -32,3 +32,40 @@ body {
   border-top-right-radius: 10px;
   height: auto;
 }
+
+#fontsizeP {
+  font-size: small;
+}
+
+#openToWork {
+  width: 755px;
+  height: 90px;
+  background-color: #E9E5DF;
+  padding: 15px;
+  border-radius: 10px;
+  position: relative;
+}
+
+#pen1 {
+  position: absolute;
+  right: 20px;
+  top: 20px;
+  font-size: small;
+}
+
+#pen2 {
+  position: absolute;
+  right: 20px;
+  top: 220px;
+  font-size: medium;
+  color: rgb(112, 111, 111);
+}
+
+#pen3 {
+  position: absolute;
+  right: 10px;
+  top: 10px;
+  font-size: small;
+  color: rgb(112, 111, 111);
+}
+
