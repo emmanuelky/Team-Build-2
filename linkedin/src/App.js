@@ -7,6 +7,5 @@ function App() {
     <Index />
     </div>
      );
-
   }
 export default App;

@@ -1,0 +1,47 @@
+.dashboardcontainer {
+  background-color: #dce6f1;
+  display: flex;
+}
+
+.heading {
+  position: absolute;
+  left: 5px;
+  top: 10px;
+}
+
+.sub-heading {
+  position: absolute;
+  left: 5px;
+  top: 30px;
+}
+.info-col1 {
+  background-color: #ffffff;
+  border-radius: 10%;
+  margin-top: 30px;
+  width: 100px;
+}
+.info-col2 {
+  display: inline;
+  border-radius: 10%;
+}
+.vl {
+  border-left: 2px solid grey;
+  height: 60px;
+  width: 200px;
+}
+.list-div {
+  padding-top: 25px;
+  margin-bottom: 20px;
+}
+.li-item {
+  padding-left: 10px;
+  color: black;
+  text-decoration: none;
+}
+.li-item:hover {
+  color: black;
+}
+.staricon {
+  display: inline;
+  float: right;
+}
