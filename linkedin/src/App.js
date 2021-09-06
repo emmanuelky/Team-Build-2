@@ -1,6 +1,6 @@
 import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import Index from './components/Index'
+import Index from './components/IndexLayout/Index'
 
 function App() {
   return (
