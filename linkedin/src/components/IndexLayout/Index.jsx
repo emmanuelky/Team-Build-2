@@ -4,6 +4,8 @@ import Education from '../Education'
 import ProfileSummary from '../ProfileSummary/ProfileSummary'
 import MyNavbar from '../MyNavbar'
 import MyFooter from '../MyFooter'
+import SideBar from '../SideBar'
+
 
 
 const Index = () => {
@@ -14,14 +16,16 @@ const Index = () => {
             </div>
 
             <div className='d-flex my-5' >
-                <div className='flex-column profile m-2'>
-                    <div className='mb-3 border'><ProfileSummary /></div>
+                <div className='flex-column profile m-2 text-center'>
+                    <div className='mb-3 border'>
+                        <ProfileSummary />
+                    </div>
                     <div className='-3 border'>
                         <Education />
                     </div>
                 </div>
                 <div className='d-flex sidebar border  m-2 text-center' >
-                    <div>Sidebar</div>
+                    <div><SideBar /></div>
                 </div>
             </div>
 
