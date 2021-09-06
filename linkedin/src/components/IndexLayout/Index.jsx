@@ -16,7 +16,7 @@ const Index = () => {
             </div>
 
             <div className='d-flex my-5' >
-                <div className='flex-column profile m-2 text-center'>
+                <div className='flex-column profile m-2'>
                     <div className='mb-3 border'>
                         <ProfileSummary />
                     </div>
