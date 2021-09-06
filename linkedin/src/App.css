@@ -20,7 +20,7 @@ body {
 #summaryContainer {
   border-radius: 10px;
   width: 800px;
-  height: 530px;
+  height: 535px;
   background-color: white;
   padding: 0;
   position: relative;
@@ -69,3 +69,16 @@ body {
   color: rgb(112, 111, 111);
 }
 
+#striveImg {
+  width: 35px;
+  height: auto;
+  position: absolute;
+  top: 260px;
+  right: 210px;
+}
+
+#striveText {
+  position: absolute;
+  top: 270px;
+  right: 105px;
+}
