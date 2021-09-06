@@ -90,7 +90,7 @@ export default function MyFooter(){
                     </DropdownButton>
                 </Col>
                 <Col xs={12} className="p-0 copyright">
-                <Button className= "copyright text-left" variant="link">LinkedIn Corporation © 2021</Button>
+                <Button className= "copyright text-left text-muted" variant="link">LinkedIn Corporation © 2021</Button>
                 </Col>       
           </Row>
         </Container>

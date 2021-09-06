@@ -24,7 +24,7 @@ const Index = () => {
                         <Education />
                     </div>
                 </div>
-                <div className='d-flex sidebar border  m-2 text-center' >
+                <div className='sidebar m-2' >
                     <div><SideBar /></div>
                 </div>
             </div>
