@@ -25,3 +25,8 @@ ul {
 #footerFontSize {
   font-size: small;
 }
+
+#footerImg {
+  width: 90px;
+  height: auto;
+}
