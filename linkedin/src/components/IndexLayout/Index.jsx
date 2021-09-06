@@ -5,6 +5,7 @@ import ProfileSummary from '../ProfileSummary/ProfileSummary'
 import MyNavbar from '../MyNavbar'
 import MyFooter from '../MyFooter'
 import SideBar from '../SideBar'
+import Dashboard from '../Dashboard'
 
 
 
@@ -20,18 +21,21 @@ const Index = () => {
                     <div className='mb-3'>
                         <ProfileSummary />
                     </div>
+                    <div  id="dashboardDiv" className=''>
+                        <Dashboard />
+                    </div>
                     <div className=''>
                         <Education />
                     </div>
                 </div>
-                <div className='d-flex sidebar border  m-2 text-center' >
+                <div className='sidebar m-2' >
                     <div><SideBar /></div>
                 </div>
             </div>
 
 
 
-            <div className='border w-100' >
+            <div className='w-100' >
                 <div><MyFooter /></div>
             </div>
         </div>

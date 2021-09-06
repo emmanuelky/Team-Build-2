@@ -1,6 +1,7 @@
 .Footer {
   color: gray;
   text-decoration-color: gray;
+  font-size: small;
 }
 
 .linked {
@@ -15,4 +16,17 @@
 }
 .copyright {
   margin-left: 0px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+#footerFontSize {
+  font-size: small;
+}
+
+#footerImg {
+  width: 90px;
+  height: auto;
 }
