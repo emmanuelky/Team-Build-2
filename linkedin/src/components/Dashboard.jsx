@@ -18,76 +18,76 @@ import "./Dashboard.css";
 
 export default function Dashboard() {
   return (
-    <div>
-      <Container style={{ backgroundColor: "#DCE6F1" }}>
-        <h2>Your Dashboard </h2>
-        <div className="staricon">
+    <div className="mb-3">
+      <Container className="pb-2" id="dashboardDiv" style={{ backgroundColor: "#DCE6F1" }}>
+        <h5 className="pl-2 pt-4">Your Dashboard </h5>
+        {/* <div className="staricon">
           <FaStar />
-        </div>
-        <h4 className="text-muted">
+        </div> */}
+        <h6 className="pl-2 pb-2 text-muted">
           <em>Private to you</em>
-        </h4>
+        </h6>
 
-        <CardGroup>
-          <Card>
+        <CardGroup className="pl-2 pr-2">
+          <Card id="dbCard1">
             <Card.Body>
               <Card.Title>
-                <a href="#">50</a>
+                <a href="#"><h4>50</h4></a>
               </Card.Title>
-              <Card.Text>
-                <a href="#">viewed ur profile</a>
+              <Card.Text id="dashboardFontSize">
+                Who viewed your profile
               </Card.Text>
             </Card.Body>
           </Card>
           <Card>
             <Card.Body>
               <Card.Title>
-                <a href="#">50</a>
+                <a href="#"><h4>12</h4></a>
               </Card.Title>
-              <Card.Text>
-                <a href="#">viewed ur profile</a>
+              <Card.Text id="dashboardFontSize">
+                Article news
               </Card.Text>
             </Card.Body>
           </Card>
-          <Card>
+          <Card id="dbCard2">
             <Card.Body>
               <Card.Title>
-                <a href="#">50</a>
+                <a href="#"><h4>77</h4></a>
               </Card.Title>
-              <Card.Text>
-                <a href="#">viewed ur profile</a>
+              <Card.Text id="dashboardFontSize">
+                Search appearances
               </Card.Text>
             </Card.Body>
           </Card>
         </CardGroup>
-        <div className="list-div">
+        <div className="list-div pl-2 pr-2">
           <ListGroup>
-            <ListGroup.Item>
-              <FaSatelliteDish />
-              <a href="#" className="li-item">
-                Creator mode: Off Grow your audience and get discovered by
-                highlighting content on your profile.
+            <ListGroup.Item id="dbCard3">
+              <FaSatelliteDish id="dashboardIcon"/>
+              <a href="#" id="dashboardFontSize" className="pl-5 li-item">
+                <strong>Creator mode: <span className="text-muted">Off</span></strong> <br/> <span className="text-muted pl-5">Grow your audience and get discovered by
+                highlighting content on your profile.</span>
               </a>
             </ListGroup.Item>
             <ListGroup.Item>
-              <FaUsers />
-              <a href="#" className="li-item">
-                My Network Manage your connections, events, and interests.
-              </a>
-            </ListGroup.Item>
-
-            <ListGroup.Item>
-              <FaRegMoneyBillAlt />
-              <a href="#" className="li-item">
-                Salary insights See how your salary compares to others in the
-                community.
+              <FaUsers id="dashboardIcon" />
+              <a href="#" id="dashboardFontSize" className="pl-5 li-item">
+                <strong>My Network</strong> <br/> <span className="text-muted pl-5">Manage your connections, events, and interests.</span>
               </a>
             </ListGroup.Item>
 
             <ListGroup.Item>
-              <FaRegBookmark />
-              <a href="#" className="li-item">
-                My items Keep track of your jobs, courses and articles.
+              <FaRegMoneyBillAlt id="dashboardIcon" />
+              <a href="#" id="dashboardFontSize" className="pl-5 li-item">
+                <strong>Salary insights</strong> <br/> <span className="text-muted pl-5">See how your salary compares to others in the
+                community.</span>
+              </a>
+            </ListGroup.Item>
+
+            <ListGroup.Item id="dbCard4">
+              <FaRegBookmark id="dashboardIcon" />
+              <a href="#" id="dashboardFontSize" className="pl-5 li-item">
+              <strong>My items</strong> <br/> <span className="text-muted pl-5">Keep track of your jobs, courses and articles.</span>
               </a>
             </ListGroup.Item>
           </ListGroup>

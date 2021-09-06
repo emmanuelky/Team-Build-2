@@ -21,7 +21,7 @@ const Index = () => {
                     <div className='mb-3'>
                         <ProfileSummary />
                     </div>
-                    <div className=''>
+                    <div  id="dashboardDiv" className=''>
                         <Dashboard />
                     </div>
                     <div className=''>
