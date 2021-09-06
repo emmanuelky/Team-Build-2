@@ -91,5 +91,23 @@ body {
 
 #navbarImg {
   border-radius: 50%;
-    border: 4px solid rgb(255, 255, 255);
 }
+
+.premium {
+  color: #9b6923 !important;
+}
+
+/* #navFontSize {
+  font-size: small;
+}
+
+ #navbarer {
+  height: 3rem;
+  position: relative;
+}
+
+.work {
+  position: absolute;
+  top: 1.8rem;
+  right: 17rem;
+} */

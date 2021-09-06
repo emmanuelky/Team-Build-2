@@ -26,7 +26,7 @@ export default function MyNav() {
             width="40"
             height="40"
             viewBox="0 0 34 34"
-
+           
           >
             <title>linkedin</title>
 
@@ -47,22 +47,22 @@ export default function MyNav() {
           >
             <Col xs="auto" className="px-0">
               <InputGroup className="flex-row mb-2">
-                <InputGroup.Text
-                  style={{
-                    height: "38px",
-                    width: "40px",
-                    borderRadius: "0.25rem 0px 0px 0.25rem",
-                    backgroundColor: "White",
-                    borderRight: 0,
-                    paddingLeft: "0.8rem",
-                    paddingRight: "0",
-                  }}
-                >
-                  <FontAwesomeIcon
-                    style={{ height: "15px", width: "15px" }}
-                    icon={faSearch}
-                  />
-                </InputGroup.Text>
+                  <InputGroup.Text
+                    style={{
+                      height: "38px",
+                      width: "40px",
+                      borderRadius: "0.25rem 0px 0px 0.25rem",
+                      backgroundColor: "White",
+                      borderRight: 0,
+                      paddingLeft: "0.8rem",
+                      paddingRight: "0",
+                    }}
+                  >
+                    <FontAwesomeIcon
+                      style={{ height: "15px", width: "15px" }}
+                      icon={faSearch}
+                    />
+                  </InputGroup.Text>
                 <FormControl id="inlineFormInputGroup" placeholder="Search" />
               </InputGroup>
             </Col>
@@ -70,7 +70,7 @@ export default function MyNav() {
           <Nav className="d-inline-flex ml-auto mt-1">
             <Nav.Link fluid href="#home" className="flex-col text-center py-0">
               <svg
-
+                
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -86,7 +86,7 @@ export default function MyNav() {
             </Nav.Link>
             <Nav.Link href="#link" className="flex-col text-center py-0">
               <svg
-
+               
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -102,7 +102,7 @@ export default function MyNav() {
             </Nav.Link>
             <Nav.Link href="#home" className="flex-col text-center py-0">
               <svg
-
+               
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -117,7 +117,7 @@ export default function MyNav() {
             </Nav.Link>
             <Nav.Link href="#home" className="flex-col text-center py-0">
               <svg
-
+               
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -132,7 +132,7 @@ export default function MyNav() {
             </Nav.Link>
             <Nav.Link href="#home" className="flex-col text-center py-0">
               <svg
-
+               
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -152,7 +152,7 @@ export default function MyNav() {
                 title={<img
                   alt=""
                   src="data:image/png;base64,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"
-                  width="40"
+                  width="30"
                   height="auto"
                   className="d-inline-block align-top"
                   id="navbarImg"
@@ -164,9 +164,8 @@ export default function MyNav() {
                 <img
                   width="24"
                   height="24"
-                  alt="Name"
+                  alt="name"
                   id="ember30"
-                  src=""
                 />
                 <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
                 <NavDropdown.Item href="#action/3.2">
@@ -188,7 +187,7 @@ export default function MyNav() {
               className="flex-col text-center py-0 text-nowrap"
             >
               <svg
-
+                
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -208,7 +207,7 @@ export default function MyNav() {
               </div>
             </Nav.Link>
 
-            <Nav.Link href="#home">Try Premium For Free</Nav.Link>
+            <Nav.Link href="#home" className="premium">Try Premium For Free</Nav.Link>
           </Nav>
         </Navbar.Collapse>
       </Container>
