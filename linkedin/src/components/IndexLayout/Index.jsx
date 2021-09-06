@@ -14,8 +14,15 @@ const Index = () => {
             </div>
 
             <div className='d-flex my-5' >
+<<<<<<< Updated upstream
                 <div className='flex-column profile m-2'>
                     <div className='mb-3 border'><ProfileSummary /></div>
+=======
+                <div className='flex-column profile m-2 text-center'>
+                    <div className='mb-3 border'>
+                        <ProfileSummary />
+                    </div>
+>>>>>>> Stashed changes
                     <div className='-3 border'>
                         <Education />
                     </div>
@@ -27,7 +34,7 @@ const Index = () => {
 
 
 
-            <div className='border w-100 text-center fixed-bottom' >
+            <div className='border w-100 text-center' >
                 <div><MyFooter /></div>
             </div>
         </div>
