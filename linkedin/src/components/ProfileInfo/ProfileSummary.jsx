@@ -7,11 +7,7 @@ const ProfileSummary = () => {
 
     return (
         <Container fluid className="" id="summaryContainer">
-<<<<<<< Updated upstream
-            <div>   
-=======
             <div>
->>>>>>> Stashed changes
                 <img
                     className="mb-3"
                     id="backgroundImage"
