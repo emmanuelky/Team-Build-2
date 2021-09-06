@@ -1,7 +1,7 @@
 import React from 'react'
 import './index.css'
 import Education from '../Education'
-import ProfileSummary from '../ProfileInfo/ProfileSummary'
+import ProfileSummary from '../ProfileSummary/ProfileSummary'
 import MyNavbar from '../MyNavbar'
 import MyFooter from '../MyFooter'
 
@@ -27,7 +27,7 @@ const Index = () => {
 
 
 
-            <div className='border w-100 text-center fixed-bottom' >
+            <div className='border w-100' >
                 <div><MyFooter /></div>
             </div>
         </div>

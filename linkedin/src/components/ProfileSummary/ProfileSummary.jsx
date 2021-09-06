@@ -9,7 +9,7 @@ const ProfileSummary = () => {
         <Container fluid className="" id="summaryContainer">
             <div>   
                 <img
-                className="mb-3"
+                className=""
                 id="backgroundImage"
                 src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
                 />

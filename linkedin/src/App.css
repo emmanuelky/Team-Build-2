@@ -6,7 +6,7 @@
   width: 160px;
   height: 160px;
   position: absolute;
-  bottom: 280px;
+  bottom: 305px;
   left: 25px;
 }
 
@@ -16,7 +16,7 @@ body {
 
 #summaryContainer {
   border-radius: 10px;
-  width: 800px;
+  width: 45rem;
   height: 535px;
   background-color: white;
   padding: 0;
@@ -24,10 +24,11 @@ body {
 }
 
 #backgroundImage {
-  width: 800px;
+  width: 45rem;
   border-top-left-radius: 10px;
   border-top-right-radius: 10px;
   height: auto;
+  margin-bottom: 1rem;
 }
 
 #fontsizeP {
@@ -35,8 +36,8 @@ body {
 }
 
 #openToWork {
-  width: 755px;
-  height: 90px;
+  width: 42rem;
+  height: 105px;
   background-color: #E9E5DF;
   padding: 15px;
   border-radius: 10px;
@@ -53,7 +54,7 @@ body {
 #pen2 {
   position: absolute;
   right: 20px;
-  top: 220px;
+  top: 200px;
   font-size: medium;
   color: rgb(112, 111, 111);
 }
