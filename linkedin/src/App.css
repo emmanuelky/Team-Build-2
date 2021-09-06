@@ -84,3 +84,14 @@ body {
 #educationDiv {
   border-radius: 10px;
 }
+
+/* EDUCATION CSS */
+
+#educationImg {
+  height: 65px;
+  width: 65px;
+}
+
+#eduFontSize {
+  font-size: small;
+}
