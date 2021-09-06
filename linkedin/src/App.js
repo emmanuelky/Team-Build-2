@@ -1,11 +1,12 @@
-import 'bootstrap/dist/css/bootstrap.css';
+
+import 'bootstrap/dist/css/bootstrap.min.css';
 import './App.css';
-import ProfileSummary from './components/ProfileInfo/ProfileSummary';
+import Index from './components/IndexLayout/Index'
 
 function App() {
   return (
-    <div className="App">
-      <ProfileSummary />
+    <div>
+      <Index />
     </div>
   );
 }
