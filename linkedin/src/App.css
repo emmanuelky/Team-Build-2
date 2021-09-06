@@ -87,6 +87,10 @@ body {
   font-size: small;
 }
 
+#eduIconColor {
+  color: rgb(112, 111, 111);
+}
+
 /* SIDEBAR CSS */
 
 #sideBorderRadius {

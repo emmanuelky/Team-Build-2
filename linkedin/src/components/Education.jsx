@@ -7,7 +7,7 @@ const Education = () => {
                 <div className='align-self-center mt-4 mt-3'>
                     <h5>Education </h5>
                 </div>
-                <div className="align-self-center mt-4 mr-3"><i class="fas fa-plus"></i></div>
+                <div id="eduIconColor" className="align-self-center mt-4 mr-3"><i class="fas fa-plus"></i></div>
             </div>
 
             <div className='d-flex justify-content-between mx-3 ml-4 mb-4'>
@@ -24,7 +24,7 @@ const Education = () => {
 
                 </div>
                 <div className='mt-3'>
-                    <div className="mb-4 mr-3"> <i class="fas fa-pen"></i></div>
+                    <div id="eduIconColor" className="mb-4 mr-3"> <i class="fas fa-pen"></i></div>
                 </div>
 
             </div>
