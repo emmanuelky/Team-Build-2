@@ -8,7 +8,7 @@ const Interest = () => {
                 <div className='align-self-center mt-4 mt-3'>
                     <h5>Interests </h5>
                 </div>
-                <div id="interest-color" className="align-self-center mt-4 mr-3"><i class="fas fa-plus"></i></div>
+                
             </div>
 
             <div className='d-flex justify-content-between mx-3 ml-4 mb-4'>
@@ -26,10 +26,7 @@ const Interest = () => {
                     
 
                 </div>
-                <div className='mt-3'>
-                    <div id="interest-color" className="mb-4 mr-3"> <i class="fas fa-pen"></i></div>
-                </div>
-
+                
             </div>
         </div >
     )
