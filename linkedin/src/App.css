@@ -80,3 +80,7 @@ body {
   top: 270px;
   right: 105px;
 }
+
+#educationDiv {
+  border-radius: 10px;
+}
