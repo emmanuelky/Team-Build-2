@@ -35,7 +35,7 @@ const Index = () => {
 
 
 
-            <div className='border w-100' >
+            <div className='w-100' >
                 <div><MyFooter /></div>
             </div>
         </div>
