@@ -56,6 +56,8 @@ export default function MyNav() {
                       borderRight: 0,
                       paddingLeft: "0.8rem",
                       paddingRight: "0",
+                      border: "0",
+                      backgroundColor: "#DCE6F1"
                     }}
                   >
                     <FontAwesomeIcon
@@ -63,7 +65,7 @@ export default function MyNav() {
                       icon={faSearch}
                     />
                   </InputGroup.Text>
-                <FormControl id="inlineFormInputGroup" placeholder="Search" />
+                <FormControl id="inlineFormInputGroup" placeholder="Search" style={{ backgroundColor: "#DCE6F1", border: "0" }}/>
               </InputGroup>
             </Col>
           </Form>
