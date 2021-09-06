@@ -2,7 +2,7 @@ import React from 'react'
 
 const Education = () => {
     return (
-        <div id="educationDiv" className='d-flex flex-column bg-white'>
+        <div id="educationDiv" className='d-flex flex-column bg-white border'>
             <div className='d-flex justify-content-between ml-4 mx-3'>
                 <div className='align-self-center mt-4 mt-3'>
                     <h5>Education </h5>

@@ -19,7 +19,7 @@ import "./Dashboard.css";
 export default function Dashboard() {
   return (
     <div className="mb-3">
-      <Container className="pb-2" id="dashboardDiv" style={{ backgroundColor: "#DCE6F1" }}>
+      <Container className="pb-2 border" id="dashboardDiv" style={{ backgroundColor: "#DCE6F1" }}>
         <h5 className="pl-2 pt-4">Your Dashboard </h5>
         {/* <div className="staricon">
           <FaStar />
