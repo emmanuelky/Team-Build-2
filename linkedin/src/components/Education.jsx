@@ -2,10 +2,10 @@ import React from 'react'
 
 const Education = () => {
     return (
-        <div className='d-flex flex-column bg-light'>
+        <div id="educationDiv" className='d-flex flex-column bg-white'>
             <div className='d-flex justify-content-between mx-3'>
                 <div className='align-self-center'>
-                    <h2>Eduction </h2>
+                    <h5>Education </h5>
                 </div>
                 <div className="align-self-center"><i class="fas fa-plus"></i></div>
             </div>

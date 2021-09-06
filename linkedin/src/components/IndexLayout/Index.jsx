@@ -17,10 +17,10 @@ const Index = () => {
 
             <div className='d-flex my-5' >
                 <div className='flex-column profile m-2'>
-                    <div className='mb-3 border'>
+                    <div className='mb-3'>
                         <ProfileSummary />
                     </div>
-                    <div className='-3 border'>
+                    <div className=''>
                         <Education />
                     </div>
                 </div>
