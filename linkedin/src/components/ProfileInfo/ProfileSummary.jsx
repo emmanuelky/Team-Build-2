@@ -6,7 +6,7 @@ import { FaPen } from 'react-icons/fa';
 const ProfileSummary = () => {
 
     return (
-        <Container fluid className="m-5" id="summaryContainer">
+        <Container fluid className="" id="summaryContainer">
             <div>   
                 <img
                 className="mb-3"
