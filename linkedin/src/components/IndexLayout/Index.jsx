@@ -6,6 +6,7 @@ import MyNavbar from '../MyNavbar'
 import MyFooter from '../MyFooter'
 import SideBar from '../SideBar'
 import Dashboard from '../Dashboard'
+import Interest from '../Interest'
 
 
 
@@ -26,6 +27,9 @@ const Index = () => {
                     </div>
                     <div className=''>
                         <Education />
+                    </div>
+                    <div className=''>
+                        <Interest />
                     </div>
                 </div>
                 <div className='sidebar m-2' >
