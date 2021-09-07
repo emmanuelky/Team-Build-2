@@ -173,7 +173,7 @@ export default function MyNav() {
             </Nav.Link>
 
             <Nav.Link href="#home" className="premium">
-              Try Premium For Free
+              Try Premium For <br/> Free
             </Nav.Link>
           </Nav>
         </Navbar.Collapse>
