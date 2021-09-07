@@ -1,4 +1,5 @@
 import React from 'react'
+import { Card } from 'react-bootstrap'
 
 const Education = () => {
     return (
@@ -17,7 +18,7 @@ const Education = () => {
                         <div className='m-1 ml-4 d-flex flex-column text-left'>
                             <h6>Strive School</h6>
                             <span id="eduFontSize">Frontend Developer</span>
-                            <span id="eduFontSize" className='text-muted'>2021 -2021</span>
+                            <span id="eduFontSize" className='text-muted'>2021 - 2021</span>
 
                         </div>
                     </div>
