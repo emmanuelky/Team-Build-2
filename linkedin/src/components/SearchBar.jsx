@@ -35,12 +35,13 @@ function SearchBar() {
       <div>
         <input
           type="text"
-          placeholder="search here"
+          placeholder="Search"
+          className="rounded-right"
           onChange={handleFilter}
           style={{
             backgroundColor: "#DCE6F1",
             border: "0",
-            height: "37px",
+            height: "38px",
             width: "180px",
           }}
         />

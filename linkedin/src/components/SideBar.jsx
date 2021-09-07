@@ -38,7 +38,7 @@ const SideBar = () => {
 
                 </div>
             </div>
-            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-4 p-3">
+            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-3 p-3">
                 <h6>People also viewed</h6>
                 <div className="d-flex mt-2">
                     {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
@@ -96,7 +96,7 @@ const SideBar = () => {
                 </div>
 
             </div>
-            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-4 p-3">
+            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-3 p-3">
                 <h6>People you may know</h6>
                 <div className="d-flex mt-2">
                     <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div>
@@ -151,7 +151,7 @@ const SideBar = () => {
                 </div>
             </div>
 
-            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-4 p-3">
+            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-3 p-3">
                 < div className="d-flex">
                     <i class="fab fa-linkedin text-primary"></i>
                     <div className="d-flex align-self-center">
