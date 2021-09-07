@@ -178,13 +178,7 @@ export default function MyNav() {
                 ></path>
               </svg>
               <div>
-                <p className="mb-0 text-secondary d-inline-flex pr-1">Work</p>
-                 <NavDropdown className = "mt-0 mr-0">
-                  <FontAwesomeIcon
-                    icon={faCaretDown}
-                    className="d-inline-flex text-secondary"
-                    style={{ height: "15px", width: "15px" }}
-                  />
+                 <NavDropdown title="Work" className="mt-0 mr-0">
                   <Modal.Dialog scrollable="true">
                     <Modal.Header closeButton>
                       <Modal.Title>Visit More Linkedin Products</Modal.Title>
