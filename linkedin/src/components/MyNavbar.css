@@ -1,0 +1,12 @@
+.Links-modal a {
+  color: black;
+  font-weight: bold;
+}
+span {
+  font-size: 12px;
+}
+table,
+tr,
+td {
+  text-align: center;
+}

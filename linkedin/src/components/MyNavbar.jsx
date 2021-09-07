@@ -1,4 +1,5 @@
 import React from "react";
+import "./MyNavbar.css";
 import {
   Navbar,
   Container,
@@ -8,9 +9,22 @@ import {
   FormControl,
   InputGroup,
   Col,
+  Modal,
+  Button,
+  Table,
+  ListGroup,
 } from "react-bootstrap";
+
 import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import { faCaretDown, faSearch } from "@fortawesome/free-solid-svg-icons";
+import { MdVideoLibrary } from "react-icons/md";
+import { GoGraph } from "react-icons/go";
+import { MdWork } from "react-icons/md";
+import { FcAdvertising } from "react-icons/fc";
+import { ImCompass2 } from "react-icons/im";
+import { GrGroup } from "react-icons/gr";
+import { RiUserFollowFill } from "react-icons/ri";
+import { FaMoneyCheck } from "react-icons/fa";
 import SearchBar from "./SearchBar";
 
 export default function MyNav() {
@@ -150,6 +164,7 @@ export default function MyNav() {
                 </NavDropdown.Item>
               </NavDropdown>
             </div>
+
             <span className="verticalLine d-inline"> </span>
 
             <Nav.Link
@@ -164,11 +179,141 @@ export default function MyNav() {
               </svg>
               <div>
                 <p className="mb-0 text-secondary d-inline-flex pr-1">Work</p>
-                <FontAwesomeIcon
-                  icon={faCaretDown}
-                  className="d-inline-flex text-secondary"
-                  style={{ height: "15px", width: "15px" }}
-                />
+                 <NavDropdown className = "mt-0 mr-0">
+                  <FontAwesomeIcon
+                    icon={faCaretDown}
+                    className="d-inline-flex text-secondary"
+                    style={{ height: "15px", width: "15px" }}
+                  />
+                  <Modal.Dialog scrollable="true">
+                    <Modal.Header closeButton>
+                      <Modal.Title>Visit More Linkedin Products</Modal.Title>
+                    </Modal.Header>
+
+                    <Modal.Body>
+                      <Table striped bordered hover>
+                        <thead>
+                          <tr>
+                            <td>
+                              {" "}
+                              <a href="">
+                                <MdVideoLibrary />{" "}
+                              </a>
+                              <br />
+                              <span>Learning </span>
+                            </td>
+                            <td>
+                              {" "}
+                              <a href="">
+                                <GoGraph />
+                              </a>{" "}
+                              <br />
+                              <span>Insights</span>
+                            </td>
+                            <td>
+                              <a href="">
+                                <MdWork />
+                              </a>{" "}
+                              <br />
+                              <span>Post a job</span>
+                            </td>
+                            <td>
+                              <a href="">
+                                <FcAdvertising />
+                              </a>{" "}
+                              <br />
+                              <span>Advertise</span>
+                            </td>
+                          </tr>
+                        </thead>
+                        <tbody>
+                          <tr>
+                            <td>
+                              <a href="">
+                                <ImCompass2 />
+                              </a>{" "}
+                              <br />
+                              <span> Find Leads </span>
+                            </td>
+                            <td>
+                              {" "}
+                              <a href="">
+                                <GrGroup />
+                              </a>{" "}
+                              <br />
+                              <span>Groups</span>
+                            </td>
+                            <td>
+                              <a href="">
+                                <RiUserFollowFill />
+                              </a>{" "}
+                              <br />
+                              <span>Profinder</span>
+                            </td>
+                            <td>
+                              <a href="">
+                                {" "}
+                                <FaMoneyCheck />{" "}
+                              </a>
+                              <br />
+                              <span>Salary</span>
+                            </td>
+                          </tr>
+                          <tr></tr>
+                        </tbody>
+                      </Table>
+                      <div>
+                        <h5 className="text-center">
+                          {" "}
+                          Linkedin Business Services
+                        </h5>
+                        <ListGroup className="Links-modal">
+                          <ListGroup.Item>
+                            {" "}
+                            <a href="">
+                              Talent Solutions <br />
+                              <span>Find,attract and recruit talent</span>
+                            </a>{" "}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            {" "}
+                            <a href="">
+                              Sales Solutions <br />
+                              <span>Unlock sales opportunities</span>
+                            </a>{" "}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            {" "}
+                            <a href="">
+                              Post a job for free <br />
+                              <span>
+                                Get your job in front of quality candidate
+                              </span>
+                            </a>{" "}
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            {" "}
+                            <a href=""> Marketing Solutions<br />
+                            <span>
+                              Acquire customers and grow your business
+                            </span></a> 
+                          </ListGroup.Item>
+                          <ListGroup.Item>
+                            {" "}
+                            <a href="">
+                              Learning Solutions <br />
+                              <span>
+                                Develop talent across your organization
+                              </span>
+                            </a>{" "}
+                          </ListGroup.Item>
+                        </ListGroup>
+                      </div>
+                    </Modal.Body>
+
+                    <Modal.Footer> <h5  className="pv2 t-14 t-black t-bold">Create a Company Page</h5></Modal.Footer>
+                  </Modal.Dialog>
+                </NavDropdown>
               </div>
             </Nav.Link>
 
