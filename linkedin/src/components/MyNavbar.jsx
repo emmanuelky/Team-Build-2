@@ -32,7 +32,7 @@ export default function MyNav() {
     <Navbar
       expand="lg"
       id="navbarer"
-      className="d-flex justify-content-center w-100 bg-white fixed-top py-0"
+      className="d-flex justify-content-center w-100 bg-white fixed-top py-0 mb-0"
     >
       <Container className="d-flex mx-auto px-2">
         <Navbar.Brand href="#home">
