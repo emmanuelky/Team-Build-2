@@ -7,12 +7,12 @@ const SideBar = () => {
         <div className="d-flex flex-column align-items-center">
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 p-3">
                 <div className="d-flex">
-                    <div className="text-muted mr-5"><span>Edit public profile & url</span></div>
+                    <div className="text-muted mr-5"><span style={{ 'font-size': '14px' }}>Edit public profile & url</span></div>
                     <div className="text-muted ml-5"><i class="fas fa-question-circle"></i></div>
                 </div>
                 <div className="border my-4 text-muted"></div>
                 <div className="d-flex">
-                    <div className="text-muted mr-3 "><span >Add profile in another language</span></div>
+                    <div className="text-muted mr-4 "><span style={{ 'font-size': '14px' }}>Add profile in another language</span></div>
                     <div className="text-muted ml-3"><i class="fas fa-question-circle"></i></div>
                 </div>
             </div>
