@@ -3,6 +3,8 @@
 
 body {
   background-color: #F3F2EF;
+  width: 100vw;
+  height: 100vh
 }
 
 #summaryContainer {

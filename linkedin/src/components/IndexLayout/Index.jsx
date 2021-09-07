@@ -13,19 +13,19 @@ import Interest from '../Interest'
 const Index = () => {
     return (
         <div className='d-flex flex-column align-items-center flex-wrap' >
-            <div className='border w-100 text-center'>
-                <div><MyNavbar /></div>
+            <div className='d-flex flex-wrap border text-center' style={{ 'width': '100vw' }}>
+                <MyNavbar />
             </div>
 
-            <div className='d-flex my-5' >
-                <div className='flex-column profile m-2'>
+            <div className='d-flex flex-wrap my-5' >
+                <div className='flex-column flex-wrap profile m-2'>
                     <div className='mb-3'>
                         <ProfileSummary />
                     </div>
-                    <div  id="dashboardDiv" className=''>
+                    <div id="dashboardDiv" className=''>
                         <Dashboard />
                     </div>
-                    <div className=''>
+                    <div className='mx-auto'>
                         <Education />
                     </div>
                     <div className=''>

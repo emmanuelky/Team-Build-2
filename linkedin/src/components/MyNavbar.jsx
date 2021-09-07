@@ -17,7 +17,7 @@ export default function MyNav() {
     <Navbar
       expand="lg"
       id="navbarer"
-      className="d-flex justify-content-center bg-white"
+      className="d-flex justify-content-center w-100 bg-white fixed-top"
     >
       <Container className="d-flex mx-auto px-2">
         <Navbar.Brand href="#home">
@@ -26,7 +26,7 @@ export default function MyNav() {
             width="40"
             height="40"
             viewBox="0 0 34 34"
-           
+
           >
             <title>linkedin</title>
 
@@ -47,32 +47,32 @@ export default function MyNav() {
           >
             <Col xs="auto" className="px-0">
               <InputGroup className="flex-row mb-2">
-                  <InputGroup.Text
-                    style={{
-                      height: "38px",
-                      width: "40px",
-                      borderRadius: "0.25rem 0px 0px 0.25rem",
-                      backgroundColor: "White",
-                      borderRight: 0,
-                      paddingLeft: "0.8rem",
-                      paddingRight: "0",
-                      border: "0",
-                      backgroundColor: "#DCE6F1"
-                    }}
-                  >
-                    <FontAwesomeIcon
-                      style={{ height: "15px", width: "15px" }}
-                      icon={faSearch}
-                    />
-                  </InputGroup.Text>
-                <FormControl id="inlineFormInputGroup" placeholder="Search" style={{ backgroundColor: "#DCE6F1", border: "0" }}/>
+                <InputGroup.Text
+                  style={{
+                    height: "38px",
+                    width: "40px",
+                    borderRadius: "0.25rem 0px 0px 0.25rem",
+                    backgroundColor: "White",
+                    borderRight: 0,
+                    paddingLeft: "0.8rem",
+                    paddingRight: "0",
+                    border: "0",
+                    backgroundColor: "#DCE6F1"
+                  }}
+                >
+                  <FontAwesomeIcon
+                    style={{ height: "15px", width: "15px" }}
+                    icon={faSearch}
+                  />
+                </InputGroup.Text>
+                <FormControl id="inlineFormInputGroup" placeholder="Search" style={{ backgroundColor: "#DCE6F1", border: "0" }} />
               </InputGroup>
             </Col>
           </Form>
           <Nav className="d-inline-flex ml-auto mt-1">
             <Nav.Link fluid href="#home" className="flex-col text-center py-0">
               <svg
-                
+
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -88,7 +88,7 @@ export default function MyNav() {
             </Nav.Link>
             <Nav.Link href="#link" className="flex-col text-center py-0">
               <svg
-               
+
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -104,7 +104,7 @@ export default function MyNav() {
             </Nav.Link>
             <Nav.Link href="#home" className="flex-col text-center py-0">
               <svg
-               
+
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -119,7 +119,7 @@ export default function MyNav() {
             </Nav.Link>
             <Nav.Link href="#home" className="flex-col text-center py-0">
               <svg
-               
+
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -134,7 +134,7 @@ export default function MyNav() {
             </Nav.Link>
             <Nav.Link href="#home" className="flex-col text-center py-0">
               <svg
-               
+
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
@@ -158,7 +158,7 @@ export default function MyNav() {
                   height="auto"
                   className="d-inline-block align-top"
                   id="navbarImg"
-              />}
+                />}
                 id="basic-nav-dropdown"
                 className="d-flex px-auto mx-4"
                 style={{ padding: "none" }}
@@ -189,7 +189,7 @@ export default function MyNav() {
               className="flex-col text-center py-0 text-nowrap"
             >
               <svg
-                
+
                 height="30"
                 width="30"
                 viewBox="0 0 30 30"
