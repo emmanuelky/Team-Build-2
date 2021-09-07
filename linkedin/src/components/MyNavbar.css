@@ -1,3 +1,7 @@
+#navbarer {
+  font-size: 12px;
+}
+
 .Links-modal a {
   color: black;
   font-weight: bold;
@@ -22,6 +26,3 @@ td {
 #navFontSize {
   font-size: small !important;
 }
-
-
-
