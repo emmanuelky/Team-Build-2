@@ -1,9 +1,25 @@
-import React from "react"
+import React, { useEffect } from "react"
 import ProfilePicture from "./ProfilePicture";
 import { Container, Button } from "react-bootstrap";
 import { FaPen } from 'react-icons/fa';
+import { fetchdata, fetchMe, fetchUser } from "../../functions/fetches";
+import { useState } from "react";
+import { useParams } from "react-router";
 
 const ProfileSummary = () => {
+    const [profileData, setProfileData] = useState({})
+    let { id } = useParams()
+
+    useEffect(async () => {
+        let data
+        if (id) {
+            data = await fetchUser(id)
+            setProfileData(data)
+        } else {
+            data = await fetchMe()
+            setProfileData(data)
+        }
+    }, []);
 
     return (
         <Container fluid className="border" id="summaryContainer">
@@ -14,13 +30,13 @@ const ProfileSummary = () => {
                 src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
                 />
             </div>
-            <ProfilePicture />
+            <ProfilePicture img={profileData.image} />
             <div className="mt-5 ml-4">
                 <Button id="pen1" variant="light" className="badge-pill"><a href=""><FaPen /></a></Button>
                 <FaPen id="pen2" />
-                <h4>Sara Sjöman</h4>
-                <h6>Student at Strive School</h6>
-                <h6 id="fontsizeP" className="text-muted">Stockholm, Stockholm County, Sweden • <a href="">Contact info</a></h6>
+                <h4>{profileData.name} {profileData.surname}</h4>
+                <h6>{profileData.title}</h6>
+                <h6 id="fontsizeP" className="text-muted">{profileData.area} • <a href="">Contact info</a></h6>
                 <h6><a id="fontsizeP" href="">20 connections</a></h6>
             </div>
             <div className="mt-2 ml-4">

@@ -1,7 +1,9 @@
 import React, { useEffect, useState } from "react";
+import { Link } from 'react-router-dom'
 
 import { fetchdata } from "../functions/fetches";
 import { ListGroup } from "react-bootstrap";
+import Index from "./IndexLayout/Index";
 
 function SearchBar() {
   const [profile, setProfile] = useState([]);
@@ -58,6 +60,7 @@ function SearchBar() {
               // }}
               >
                 <div>
+                  <Link to={`/user/${profile._id}`} >
                   <ListGroup.Item>
                     <img
                       style={{ width: "25px", height: "25px" }}
@@ -65,6 +68,7 @@ function SearchBar() {
                     />
                     {profile.name}
                   </ListGroup.Item>
+                  </Link>
                 </div>
               </ListGroup>
             );
