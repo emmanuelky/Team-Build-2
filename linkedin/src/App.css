@@ -74,11 +74,12 @@ body {
   right: 105px;
 }
 
-#educationDiv {
-  border-radius: 10px;
-}
-
 /* EDUCATION CSS */
+
+#educationDiv {
+  border-bottom-left-radius: 10px;
+  border-bottom-right-radius: 10px;
+}
 
 #educationImg {
   height: 65px;
@@ -91,6 +92,11 @@ body {
 
 #eduIconColor {
   color: rgb(112, 111, 111);
+}
+
+#experienceDiv {
+  border-top-left-radius: 10px;
+  border-top-right-radius: 10px;
 }
 
 /* SIDEBAR CSS */
