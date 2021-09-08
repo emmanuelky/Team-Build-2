@@ -66,9 +66,9 @@ const Feeds = () => {
                                 <span className="text-muted" style={{ fontSize: '11px' }}>1,304 followers</span>
                                 <span className="text-muted" style={{ fontSize: '11px' }}>{fixDate(post.createdAt)} • <i class="fas fa-globe-americas"></i></span>
 
-                                <span className="my-2 flex-wrap" style={{ fontSize: '14px' }}>{post.text} </span>
+                                <span className="my-3 flex-wrap" style={{ fontSize: '13px' }}>{post.text} </span>
                                 <img src="https://via.placeholder.com/150x200" alt="" />
-                                <div className="mt-2 d-flex text-muted" style={{ fontSize: '18px' }}>
+                                <div className="mt-3 d-flex text-muted border-top" style={{ fontSize: '18px' }}>
                                     <div className="m-2">
                                         <i class="far fa-thumbs-up"></i>
                                         <span className="m-1">Like</span>
