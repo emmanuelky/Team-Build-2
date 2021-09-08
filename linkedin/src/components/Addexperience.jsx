@@ -57,17 +57,16 @@ export default function Addexperience() {
 
   return (
     <div>
-      <h2>ADD EXPERIENCE</h2>
       <Form onSubmit={handleSubmit}>
         <Form.Group>
           <Form.Row>
-            <Form.Label column lg={2}>
+            <Form.Label column lg={3}>
               Title
             </Form.Label>
             <Col>
               <Form.Control
                 type="text"
-                placeholder="role"
+                placeholder="Role"
                 value={experience.role}
                 onChange={(e) => handleInput(e, "role")}
               />
@@ -75,13 +74,13 @@ export default function Addexperience() {
           </Form.Row>
           <br />
           <Form.Row>
-            <Form.Label column lg={2}>
-              company
+            <Form.Label column lg={3}>
+              Company
             </Form.Label>
             <Col>
               <Form.Control
                 type="text"
-                placeholder="company"
+                placeholder="Company"
                 value={experience.company}
                 onChange={(e) => handleInput(e, "company")}
               />
@@ -90,8 +89,8 @@ export default function Addexperience() {
 
           <br />
           <Form.Row>
-            <Form.Label column lg={2}>
-              start DATE
+            <Form.Label column lg={3}>
+              Start date
             </Form.Label>
             <Col>
               <Form.Control
@@ -104,8 +103,8 @@ export default function Addexperience() {
           </Form.Row>
           <br />
           <Form.Row>
-            <Form.Label column lg={2}>
-              end date
+            <Form.Label column lg={3}>
+              End date
             </Form.Label>
             <Col>
               <Form.Control
@@ -118,13 +117,13 @@ export default function Addexperience() {
           </Form.Row>
           <br />
           <Form.Row>
-            <Form.Label column lg={2}>
+            <Form.Label column lg={3}>
               Description
             </Form.Label>
             <Col>
               <Form.Control
                 type="text"
-                placeholder="describe"
+                placeholder="Job description"
                 value={experience.description}
                 onChange={(e) => handleInput(e, "description")}
               />
@@ -132,19 +131,19 @@ export default function Addexperience() {
           </Form.Row>
           <br />
           <Form.Row>
-            <Form.Label column lg={2}>
-              area
+            <Form.Label column lg={3}>
+              Area
             </Form.Label>
             <Col>
               <Form.Control
                 type="text"
-                placeholder="location"
+                placeholder="Location"
                 value={experience.area}
                 onChange={(e) => handleInput(e, "area")}
               />
             </Col>
           </Form.Row>
-          <Button type="submit" className="my-1">
+          <Button type="submit" className="mt-3">
             Submit
           </Button>
         </Form.Group>

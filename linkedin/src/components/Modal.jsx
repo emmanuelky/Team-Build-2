@@ -28,7 +28,7 @@ function Modalbox() {
         keyboard={false}
       >
         <Modal.Header closeButton>
-          <Modal.Title>Modal title</Modal.Title>
+          <Modal.Title>Add Experience</Modal.Title>
         </Modal.Header>
         <Modal.Body>
           <Addexperience />
