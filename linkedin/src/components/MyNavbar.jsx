@@ -169,17 +169,17 @@ export default function MyNav() {
                   className="d-flex px-auto mx-4"
                   style={{ padding: "none" }}
                 >
-                  <Link id="dropdownName" to="/user"><div className="ml-2 mb-2" id="dropdownName"><img className="mr-2" src={userData.image} width="24" height="24" alt="Ndasfame" id="ember30" />{userData.name} {userData.surname}</div></Link>
-                  <NavDropdown.Item href="#action/3.1">Action</NavDropdown.Item>
+                  <Link id="dropdownName" to="/user"><div className="ml-3 mb-2" id="dropdownName"><img className="mr-2" src={userData.image} width="30" height="30" alt="Ndasfame" id="ember30" />{userData.name} {userData.surname}</div></Link>
+                  <NavDropdown.Item href="#action/3.1">Settings & Privacy</NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.2">
-                    Another action
+                    Help
                   </NavDropdown.Item>
                   <NavDropdown.Item href="#action/3.3">
-                    Something
+                    Language
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.4">
-                    Separated link
+                    Log Out
                   </NavDropdown.Item>
                 </NavDropdown>
               </Link>
