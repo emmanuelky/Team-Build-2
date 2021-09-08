@@ -1,6 +1,7 @@
 import React from 'react'
 import MyNavbar from '../MyNavbar'
 import MyFooter from '../MyFooter'
+import './HomePage.css'
 
 const HomePage = () => {
     return (
@@ -11,22 +12,29 @@ const HomePage = () => {
                     <h2>navbar</h2>
                 </div>
 
-                <div className='d-flex flex-wrap my-5' >
-                    <div className='flex-column flex-wrap profile m-2'>
-                        <div className='mb-3'>
+                <div className='border d-flex flex-wrap my-5' >
 
+                    <div className='border flex-column flex-wrap sidebar1 m-2'>
+                        <div className=' mb-3'>
+                            <h3>Sidebar1</h3>
                         </div>
 
                     </div>
-                    <div className='sidebar m-2' >
+                    <div className='border flex-column flex-wrap profile m-2'>
+                        <div className='text-center mb-3'>
+                            <h3>Feeds</h3>
+                        </div>
 
-                        <h2>sidebar</h2>
+                    </div>
+                    <div className='border sidebar m-2' >
+
+                        <h2>sidebar2</h2>
                     </div>
                 </div>
 
 
 
-                <div className='w-100' >
+                <div className=' border w-100' >
                     <div><MyFooter /></div>
                 </div>
             </div>
