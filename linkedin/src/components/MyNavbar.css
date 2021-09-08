@@ -26,3 +26,15 @@ td {
 #navFontSize {
   font-size: small !important;
 }
+
+#ember30 {
+  border-radius: 50%;
+}
+
+#dropdownName {
+  color: #16181B;
+}
+
+#dropdownName:hover {
+  text-decoration: none;
+}
