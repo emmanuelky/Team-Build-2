@@ -15,10 +15,11 @@ const Experiences = () => {
         if (id) {
             data = await fetchExperiences(id)
             setExperiences(data)
-        } else {
-            data = await fetchMyExperience()
-            setExperiences(data)
         }
+        // else {
+        //     data = await fetchMyExperience()
+        //     setExperiences(data)
+        // }
     }, [id]);
 
 
