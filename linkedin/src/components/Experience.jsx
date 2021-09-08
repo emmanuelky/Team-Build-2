@@ -44,7 +44,7 @@ const Experiences = () => {
         <Modal />
         {/* <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-block"><i class="fas fa-plus"></i></div> */}
       </div>
-
+   console.log(experience)
       {experiences.map((experience) => (
         <div className="d-flex justify-content-between mx-3 ml-4 mb-4">
           <div className="mt-3">

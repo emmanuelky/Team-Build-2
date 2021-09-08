@@ -9,12 +9,12 @@ function Modalbox() {
   const handleShow = () => setShow(true);
 
 
-  const deleteExperience = async (e) => {
+  const deleteExperience = async (e,user,experience) => {
     e.preventDefault() 
 
     
     try {
-        const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/experiences`, {
+        const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${experience._id}`, {
             method: 'DELETE',
             headers: {
                 "Authorization": `"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE", `,
@@ -62,7 +62,7 @@ function Modalbox() {
             Close
           </Button>
           <Button variant="primary">Save changes</Button>
-          <Button variant="danger" onClick = { deleteExperience}>Delete</Button>
+          {/*<Button variant="danger" onClick = {(e)=>deleteExperience(e,user,experience)}>Delete</Button>*/}
 
           
         </Modal.Footer>
