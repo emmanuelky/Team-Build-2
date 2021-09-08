@@ -11,11 +11,13 @@ export default function Addexperience() {
     description: "",
     area: "",
   });
-  const handleSubmit = async (e) => {
+  const handleSubmit = async (e, userId) => {
     e.preventDefault();
     try {
       const response = await fetch(
-        " https://striveschool-api.herokuapp.com/api/profile/:5d925e677360c41e0046d1f/experiences",
+        " https://striveschool-api.herokuapp.com/api/profile/" +
+          userId +
+          "/experiences",
         {
           method: "POST",
           body: JSON.stringify(experience),
