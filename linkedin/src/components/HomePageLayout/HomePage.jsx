@@ -14,19 +14,19 @@ const HomePage = () => {
 
                 <div className='border d-flex flex-wrap my-5' >
 
-                    <div className='border flex-column flex-wrap sidebar1 m-2'>
+                    <div className='border flex-column flex-wrap home-sidebar-1 m-2'>
                         <div className=' mb-3'>
                             <h3>Sidebar1</h3>
                         </div>
 
                     </div>
-                    <div className='border flex-column flex-wrap profile m-2'>
+                    <div className='border flex-column flex-wrap feeds m-2'>
                         <div className='text-center mb-3'>
                             <h3>Feeds</h3>
                         </div>
 
                     </div>
-                    <div className='border sidebar m-2' >
+                    <div className='border home-sidebar-2 m-2' >
 
                         <h2>sidebar2</h2>
                     </div>
