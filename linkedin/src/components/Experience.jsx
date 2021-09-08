@@ -1,12 +1,10 @@
 import React, { useEffect } from "react"
-// import ProfilePicture from "./ProfilePicture";
-import { Row, Col, Container, Card, Button } from "react-bootstrap";
 import { FaPen } from 'react-icons/fa';
 import { fetchdata, fetchMyExperience, fetchExperiences } from "../functions/fetches";
 import { useState } from "react";
 import { useParams } from "react-router";
 import { format, parseISO } from "date-fns";
-import AddExperience from './AddExperience'
+
 
 const Experiences = () => {
     const [experiences, setExperiences] = useState([])
@@ -42,8 +40,10 @@ const Experiences = () => {
                 <div className='align-self-center mt-4 mt-3'>
                     <h5>Experiences </h5>
                 </div>
-                <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-none"><i class="fas fa-plus"></i></div>
+                {/* <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-none"><i class="fas fa-plus"></i></div> */}
+
                 <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-block"><i class="fas fa-plus"></i></div>
+
             </div>
 
 

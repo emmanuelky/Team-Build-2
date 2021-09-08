@@ -3,12 +3,11 @@ import { Link } from 'react-router-dom'
 
 import { fetchdata } from "../functions/fetches";
 import { ListGroup } from "react-bootstrap";
-import Index from "./IndexLayout/Index";
+
 
 function SearchBar() {
   const [profile, setProfile] = useState([]);
   const [filteredData, setfilteredData] = useState([]);
-  const [inputField, setInputField] = useState('');
 
   const fetcheddata = async () => {
     let data = await fetchdata();
@@ -26,14 +25,14 @@ function SearchBar() {
       return value.name.toLowerCase().includes(searchProfile.toLowerCase());
     });
 
-    if (searchProfile === "") {
-      setfilteredData([]);
-    } else {
+    if (searchProfile.length > 0) {
       setfilteredData(newFilter);
+    } else {
+      setfilteredData([]);
 
     }
-
   };
+
 
   return (
     <div>
@@ -42,7 +41,6 @@ function SearchBar() {
           type="text"
           placeholder="Search"
           className="rounded-right"
-          // value={inputField}
           onChange={handleFilter}
           style={{
             backgroundColor: "#DCE6F1",

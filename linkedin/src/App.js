@@ -13,7 +13,7 @@ function App() {
             <Index />
           </Route>
           <Route exact path="/user/:id" children={Index} />
-          {/* <Route path="/profile/:userId" component={Experience} /> */}
+
 
 
         </Switch>
