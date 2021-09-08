@@ -20,7 +20,7 @@ const Experiences = () => {
             data = await fetchMyExperience()
             setExperiences(data)
         }
-    }, []);
+    }, [id]);
 
 
     const fixDate = (date) => {

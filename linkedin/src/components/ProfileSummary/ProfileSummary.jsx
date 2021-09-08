@@ -19,15 +19,15 @@ const ProfileSummary = () => {
             data = await fetchMe()
             setProfileData(data)
         }
-    }, []);
+    }, [id]);
 
     return (
         <Container fluid className="border" id="summaryContainer">
             <div>
                 <img
-                className=""
-                id="backgroundImage"
-                src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
+                    className=""
+                    id="backgroundImage"
+                    src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
                 />
             </div>
             <ProfilePicture img={profileData.image} />
