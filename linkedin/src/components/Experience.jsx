@@ -6,7 +6,7 @@ import {
   fetchExperiences,
 } from "../functions/fetches";
 import { useState } from "react";
-import { useParams } from "react-router";
+import { useParams } from "react-router-dom";
 import { format, parseISO } from "date-fns";
 import Modal from "./Modal";
 

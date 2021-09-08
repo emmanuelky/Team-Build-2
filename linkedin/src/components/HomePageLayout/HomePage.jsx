@@ -1,6 +1,8 @@
 import React from 'react'
 import MyNavbar from '../MyNavbar'
 import MyFooter from '../MyFooter'
+import Feeds from '../Feeds'
+
 import './HomePage.css'
 
 const HomePage = () => {
@@ -22,7 +24,7 @@ const HomePage = () => {
                     </div>
                     <div className='border flex-column flex-wrap feeds m-2'>
                         <div className='text-center mb-3'>
-                            <h3>Feeds</h3>
+                            <Feeds />
                         </div>
 
                     </div>

@@ -63,6 +63,8 @@ export const fetchUser = async (userId) => {
   }
 }
 
+// Fetch Experiences
+
 export const fetchMyExperience = async () => {
   try {
     const response = await fetch(
@@ -104,4 +106,28 @@ export const fetchExperiences = async (userId) => {
     console.log(error);
   }
 }
+
+// Fetch Feeds Posts
+
+// export const fetchPosts = async () => {
+//   try {
+//     const response = await fetch(
+//       `https://striveschool-api.herokuapp.com/api/posts/`,
+//       {
+//         method: "GET",
+//         headers: {
+//           Authorization:
+//             " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM3Mjk5YmIwMWIwZDAwMTUxNjY5MDQiLCJpYXQiOjE2MzEwMDUwODMsImV4cCI6MTYzMjIxNDY4M30.yJM7cebFnDP0ayfuxT3X6Wl47Nhme9pIbmgYBPwhViM",
+//         },
+//       }
+//     );
+//     if (response.ok) {
+//       const data = await response.json();
+//       console.log(data);
+//       return data;
+//     }
+//   } catch (error) {
+//     console.log(error);
+//   }
+// }
 
