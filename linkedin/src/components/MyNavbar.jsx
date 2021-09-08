@@ -179,7 +179,7 @@ export default function MyNav() {
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
                   <NavDropdown.Item href="#action/3.4">
-                    Log Out
+                    Sign Out
                   </NavDropdown.Item>
                 </NavDropdown>
               </Link>
