@@ -88,18 +88,21 @@ export default function MyNav() {
             </Col>
           </Form>
           <Nav className="d-inline-flex ml-auto mt-1">
-            <Link to='/'>
-              <Nav.Link fluid className="flex-col text-center py-0">
+
+            <Nav.Link fluid className="flex-col text-center py-0">
+              <Link to='/'>
                 <svg height="30" width="30" viewBox="0 0 30 30" className="mx-4">
                   <path
                     transform="translate(2.5, 2.5)"
                     d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"
                   ></path>
                 </svg>
-
+              </Link>
+              <Link to='/'>
                 <p className="mb-0 text-secondary">Home</p>
-              </Nav.Link>
-            </Link>
+
+              </Link>
+            </Nav.Link>
             <Nav.Link href="#link" className="flex-col text-center py-0">
               <svg height="30" width="30" viewBox="0 0 30 30" className="mx-4">
                 <path
