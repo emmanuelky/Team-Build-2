@@ -14,7 +14,7 @@ const HomePage = () => {
                     <h2>navbar</h2>
                 </div>
 
-                <div className='border d-flex flex-wrap my-5' >
+                <div className='d-flex flex-wrap my-5' >
 
                     <div className='border flex-column flex-wrap home-sidebar-2 m-2'>
                         <div className=' mb-3'>
@@ -22,8 +22,8 @@ const HomePage = () => {
                         </div>
 
                     </div>
-                    <div className='border flex-column flex-wrap feeds m-2'>
-                        <div className='text-center mb-3'>
+                    <div className='flex-column flex-wrap feeds'>
+                        <div className=''>
                             <Feeds />
                         </div>
 
