@@ -8,6 +8,29 @@ function Modalbox() {
   const handleClose = () => setShow(false);
   const handleShow = () => setShow(true);
 
+
+  const deleteExperience = async (e) => {
+    e.preventDefault() 
+
+    
+    try {
+        const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/experiences`, {
+            method: 'DELETE',
+            headers: {
+                "Authorization": `"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE", `,
+            }
+        })
+        if(response.ok) {
+            
+            alert("Experience deleted successfully")
+        } else {
+            alert("There is  some problem")
+        }
+    } catch (err) {
+        console.log(err)
+    }
+}
+
   return (
     <>
       <div
@@ -17,6 +40,7 @@ function Modalbox() {
       >
         <i class="fas fa-plus"></i>
       </div>
+      
       {/* <Button variant="primary" onClick={handleShow}>
         +
       </Button> */}
@@ -38,6 +62,9 @@ function Modalbox() {
             Close
           </Button>
           <Button variant="primary">Save changes</Button>
+          <Button variant="danger" onClick = { deleteExperience}>Delete</Button>
+
+          
         </Modal.Footer>
       </Modal>
     </>
