@@ -62,3 +62,46 @@ export const fetchUser = async (userId) => {
     console.log(error);
   }
 }
+
+export const fetchMyExperience = async () => {
+  try {
+    const response = await fetch(
+      "https://striveschool-api.herokuapp.com/api/profile/me/experiences",
+      {
+        method: "GET",
+        headers: {
+          Authorization:
+            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM3Mjk5YmIwMWIwZDAwMTUxNjY5MDQiLCJpYXQiOjE2MzEwMDUwODMsImV4cCI6MTYzMjIxNDY4M30.yJM7cebFnDP0ayfuxT3X6Wl47Nhme9pIbmgYBPwhViM",
+        },
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+};
+
+export const fetchExperiences = async (userId) => {
+  try {
+    const response = await fetch(
+      `https://striveschool-api.herokuapp.com/api/profile/${userId}/experiences`,
+      {
+        method: "GET",
+        headers: {
+          Authorization:
+            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM3Mjk5YmIwMWIwZDAwMTUxNjY5MDQiLCJpYXQiOjE2MzEwMDUwODMsImV4cCI6MTYzMjIxNDY4M30.yJM7cebFnDP0ayfuxT3X6Wl47Nhme9pIbmgYBPwhViM",
+        },
+      }
+    );
+    if (response.ok) {
+      const data = await response.json();
+      return data;
+    }
+  } catch (error) {
+    console.log(error);
+  }
+}
+
