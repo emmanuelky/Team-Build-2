@@ -8,6 +8,7 @@ import { ListGroup } from "react-bootstrap";
 function SearchBar() {
   const [profile, setProfile] = useState([]);
   const [filteredData, setfilteredData] = useState([]);
+  const [hasBeenClicked, setHasBeenClicked] = useState(false)
 
   const fetcheddata = async () => {
     let data = await fetchdata();
@@ -33,11 +34,16 @@ function SearchBar() {
     }
   };
 
+  const onInputClick = (hasItBeenClicked) => {
+    console.log(hasBeenClicked)
+    setHasBeenClicked(hasItBeenClicked)
+  }
 
   return (
     <div>
       <div>
         <input
+          onClick={() => onInputClick(false)}
           type="text"
           placeholder="Search"
           className="rounded-right"
@@ -50,7 +56,7 @@ function SearchBar() {
           }}
         />
       </div>
-      {filteredData.length != 0 && (
+      {filteredData.length != 0 && !hasBeenClicked && (
         <div>
           {filteredData.slice(0, 10).map((profile) => {
             return (
@@ -63,7 +69,7 @@ function SearchBar() {
               >
                 <div>
                   <Link to={`/user/${profile._id}`} >
-                    <ListGroup.Item>
+                    <ListGroup.Item onClick={() => onInputClick(true)}>
                       <img
                         style={{ width: "25px", height: "25px" }}
                         src={profile.image}
