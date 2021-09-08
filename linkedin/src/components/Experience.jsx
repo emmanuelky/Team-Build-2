@@ -6,6 +6,7 @@ import { fetchdata, fetchMyExperience, fetchExperiences } from "../functions/fet
 import { useState } from "react";
 import { useParams } from "react-router";
 import { format, parseISO } from "date-fns";
+import AddExperience from './AddExperience'
 
 const Experiences = () => {
     const [experiences, setExperiences] = useState([])
@@ -34,14 +35,18 @@ const Experiences = () => {
         }
     };
 
+
     return (
         <div id="educationDiv" className='d-flex flex-column bg-white border'>
             <div className='d-flex justify-content-between ml-4 mx-3'>
                 <div className='align-self-center mt-4 mt-3'>
                     <h5>Experiences </h5>
                 </div>
-                <div id="eduIconColor" className="align-self-center mt-4 mr-3"><i class="fas fa-plus"></i></div>
+                <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-none"><i class="fas fa-plus"></i></div>
+                <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-block"><i class="fas fa-plus"></i></div>
             </div>
+
+
             {experiences.map((experience) => (
                 <div className='d-flex justify-content-between mx-3 ml-4 mb-4'>
                     <div className='mt-3'>

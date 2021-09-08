@@ -8,6 +8,7 @@ import Index from "./IndexLayout/Index";
 function SearchBar() {
   const [profile, setProfile] = useState([]);
   const [filteredData, setfilteredData] = useState([]);
+  const [inputField, setInputField] = useState('');
 
   const fetcheddata = async () => {
     let data = await fetchdata();
@@ -29,7 +30,9 @@ function SearchBar() {
       setfilteredData([]);
     } else {
       setfilteredData(newFilter);
+
     }
+
   };
 
   return (
@@ -39,6 +42,7 @@ function SearchBar() {
           type="text"
           placeholder="Search"
           className="rounded-right"
+          // value={inputField}
           onChange={handleFilter}
           style={{
             backgroundColor: "#DCE6F1",
@@ -61,13 +65,13 @@ function SearchBar() {
               >
                 <div>
                   <Link to={`/user/${profile._id}`} >
-                  <ListGroup.Item>
-                    <img
-                      style={{ width: "25px", height: "25px" }}
-                      src={profile.image}
-                    />
-                    {profile.name}
-                  </ListGroup.Item>
+                    <ListGroup.Item>
+                      <img
+                        style={{ width: "25px", height: "25px" }}
+                        src={profile.image}
+                      />
+                      {profile.name}
+                    </ListGroup.Item>
                   </Link>
                 </div>
               </ListGroup>
