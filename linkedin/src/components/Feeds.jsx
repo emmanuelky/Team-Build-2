@@ -52,7 +52,7 @@ const Feeds = () => {
 
             {posts.slice(0, 50).map(post => (
 
-                <div className="d-flex justify-content-between border rounded bg-light mx-3 ml-4 mb-2">
+                <div className="d-flex justify-content-between border rounded bg-white mx-3 ml-4 mb-2">
                     <div className="mt-3 mx-3">
                         <div className="d-flex">
                             <img
