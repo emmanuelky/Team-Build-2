@@ -32,8 +32,8 @@ const ProfileSummary = () => {
             </div>
             <ProfilePicture img={profileData.image} />
             <div className="mt-5 ml-4">
-                <Button id="pen1" variant="light" className="badge-pill"><a href=""><FaPen /></a></Button>
-                <FaPen id="pen2" />
+                {!id && <Button id="pen1" variant="light" className="badge-pill"><a href=""><FaPen /></a></Button>}
+                {!id && <FaPen id="pen2" />}
                 <h4>{profileData.name} {profileData.surname}</h4>
                 <h6>{profileData.title}</h6>
                 <h6 id="fontsizeP" className="text-muted">{profileData.area} • <a href="">Contact info</a></h6>
@@ -51,7 +51,7 @@ const ProfileSummary = () => {
                 </Button>
             </div>
             <div id="openToWork" className="mt-3 ml-4">
-                <FaPen id="pen3" />
+                {!id && <FaPen id="pen3" />}
                 <h6 id="fontsizeP"><strong>Open to work</strong></h6>
                 <h6 id="fontsizeP">Junior Software Engineer, Junior Software Developer, Junior Programmer, Frontend Developer and Frontend Dev...</h6>
                 <h6 id="fontsizeP"><a href="">See all details</a></h6>
