@@ -1,18 +1,41 @@
-import React from 'react'
+import React, {useState} from 'react'
 import '../index.css'
 import { Button } from 'react-bootstrap'
+import { useEffect } from 'react'
+import { fetchdata } from '../functions/fetches'
 
 const SideBar = () => {
+    const [users, setUsers] = useState([])
+    const [usersYouMayKnow, setUsersYouMayKnow] = useState([])
+
+    useEffect(async () => {
+        let data = await fetchdata()
+        let randomUsers = []
+        let randomUsersYouMayKnow = []
+        for (let i = 0; i < 6; i++) {
+            let randomInt = Math.random() * data.length
+            let floored = Math.floor(randomInt)
+            randomUsers.push(data[floored])
+        }
+        for (let i = 0; i < 6; i++) {
+            let randomInt = Math.random() * data.length
+            let floored = Math.floor(randomInt)
+            randomUsersYouMayKnow.push(data[floored])
+        }
+        setUsers(randomUsers)
+        setUsersYouMayKnow(randomUsersYouMayKnow)
+    }, [])
+
     return (
         <div className="d-flex flex-column align-items-center">
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 p-3">
                 <div className="d-flex">
-                    <div className="text-muted mr-5"><span style={{ 'font-size': '14px' }}>Edit public profile & url</span></div>
+                    <div className="text-muted mr-5 ml-2"><span style={{ 'font-size': '14px' }}>Edit public profile & url</span></div>
                     <div className="text-muted ml-5"><i class="fas fa-question-circle"></i></div>
                 </div>
                 <div className="border my-4 text-muted"></div>
                 <div className="d-flex">
-                    <div className="text-muted mr-4 "><span style={{ 'font-size': '14px' }}>Add profile in another language</span></div>
+                    <div className="text-muted mr-4 ml-2"><span style={{ 'font-size': '14px' }}>Add profile in another language</span></div>
                     <div className="text-muted ml-3"><i class="fas fa-question-circle"></i></div>
                 </div>
             </div>
@@ -40,115 +63,35 @@ const SideBar = () => {
             </div>
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-3 p-3">
                 <h6>People also viewed</h6>
-                <div className="d-flex mt-2">
-                    {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
-                    <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" />
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Tamira Bathy <span className="text-muted">• 2nd</span> </h6>
-                        <span id="eduFontSize" className="text-muted">Research Assistant BTU</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
-                <div className="d-flex mt-2">
-                    {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
-                    <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" />
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Syanah Myrua <span className="text-muted">• 3rd</span> </h6>
-                        <span id="eduFontSize" className="text-muted">Research Specialist NU</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Message</strong></Button>
-                    </div>
-                </div>
-                <div className="d-flex mt-2">
-                    {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
-                    <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" />
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Valiy Seith <span className="text-muted">• 2nd</span> </h6>
-                        <span id="eduFontSize" className="text-muted">Project Engineer FEV EU</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
-                <div className="d-flex mt-2">
-                    {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
-                    <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" />
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Sourhh Kapuo <span className="text-muted">• 3rd</span> </h6>
-                        <span id="eduFontSize" className="text-muted">Master in Informatik</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
-                <div className="d-flex mt-2">
-                    {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
-                    <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" />
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Lai Malogo <span className="text-muted">• 2nd</span> </h6>
-                        <span id="eduFontSize" className="text-muted">Environmental Manager</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
-                <div className="d-flex mt-2">
-                    {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
-                    <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" />
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Yesif Yepi <span className="text-muted">• 3rd</span> </h6>
-                        <span id="eduFontSize" className="text-muted">Scientist at HP</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Message</strong></Button>
-                    </div>
-                </div>
-
+                {users.map(user => {
+                    return (
+                        <div className="d-flex mt-2">
+                            {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
+                            <img id="educationImg" className="rounded-pill" src={user.image} alt="" />
+                            <div className='m-1 ml-4 d-flex flex-column text-left'>
+                                <h6>{user.name} {user.surname}<span className="text-muted">• 2nd</span> </h6>
+                                <span id="eduFontSize" className="text-muted">{user.title}</span>
+                                <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-3 p-3">
                 <h6>People you may know</h6>
-                <div className="d-flex mt-2">
-                    <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div>
-                    {/* <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" /> */}
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Diego Lucas</h6>
-                        <span id="eduFontSize">BTU Cottbus</span>
-                        <span id="eduFontSize" className='text-muted'>Reseach Assistant</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
-                <div className="d-flex mt-4">
-                    <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div>
-                    {/* <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" /> */}
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Adams Duke</h6>
-                        <span id="eduFontSize">SIFON GmbH</span>
-                        <span id="eduFontSize" className='text-muted'>FullStack Developer</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
-                <div className="d-flex mt-4">
-                    <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div>
-                    {/* <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" /> */}
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Elon Musk</h6>
-                        <span id="eduFontSize">Tesla USA/Germany</span>
-                        <span id="eduFontSize" className='text-muted'>Founder/CEO</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
-
-                <div className="d-flex mt-4">
-                    <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div>
-                    {/* <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" /> */}
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Charles Happik</h6>
-                        <span id="eduFontSize">SIFON GmbH</span>
-                        <span id="eduFontSize" className='text-muted'>FullStack Developer</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
-                <div className="d-flex mt-4">
-                    <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div>
-                    {/* <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" /> */}
-                    <div className='m-1 ml-4 d-flex flex-column text-left'>
-                        <h6>Seth yhu</h6>
-                        <span id="eduFontSize">Tesla USA/Germany</span>
-                        <span id="eduFontSize" className='text-muted'>Founder/CEO</span>
-                        <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
-                    </div>
-                </div>
+                {usersYouMayKnow.map(user => {
+                    return (
+                        <div className="d-flex mt-2">
+                            <img id="educationImg" className="rounded-pill" src={user.image} alt="" />
+                            {/* <img id="educationImg" className="rounded-pill" src="https://via.placeholder.com/300.png" alt="" /> */}
+                            <div className='m-1 ml-4 d-flex flex-column text-left'>
+                                <h6>{user.name} {user.surname}</h6>
+                                <span id="eduFontSize">{user.title}</span>
+                                <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
+                            </div>
+                        </div>
+                    )
+                })}
             </div>
 
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-3 p-3">
