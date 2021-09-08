@@ -69,7 +69,7 @@ const SideBar = () => {
                             {/* <div className="rounded-pill p-4"><i class="fas fa-user-tie"></i></div> */}
                             <img id="educationImg" className="rounded-pill" src={user.image} alt="" />
                             <div className='m-1 ml-4 d-flex flex-column text-left'>
-                                <h6>{user.name} {user.surname}<span className="text-muted">• 2nd</span> </h6>
+                                <h6>{user.name} {user.surname}<span className="text-muted"> • 2nd</span> </h6>
                                 <span id="eduFontSize" className="text-muted">{user.title}</span>
                                 <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong>Connect</strong></Button>
                             </div>
