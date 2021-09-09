@@ -75,7 +75,7 @@ const Experiences = () => {
             </div>
           </div>
           <div className="mt-3">
-            <div className="mb-4 mr-3">
+            <div className="mb-4">
             <Modalbox isEdit={true} experience={experience} />
               {" "}
             </div>

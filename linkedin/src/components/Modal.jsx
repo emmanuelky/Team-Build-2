@@ -67,14 +67,13 @@ const Modalbox = (props) => {
           <Modal.Title>{props.isEdit ? "Edit Experience" : "Add Experience"}</Modal.Title>
         </Modal.Header>
         <Modal.Body>
-          <Addexperience experience={experience} isEdit={props.isEdit}/>
+          <Addexperience experience={props.experience} isEdit={props.isEdit}/>
         </Modal.Body>
         <Modal.Footer>
           <Button variant="secondary" onClick={handleClose}>
             Close
           </Button>
-          <Button variant="primary">Save changes</Button>
-          {props.isEdit && <Button variant="delete" onClick={deleteExperience}>Delete</Button>}
+          {props.isEdit && <Button variant="danger" onClick={deleteExperience}>Delete</Button>}
           {/*<Button variant="danger" onClick = {(e)=>deleteExperience(e,user,experience)}>Delete</Button>*/}
 
         </Modal.Footer>
