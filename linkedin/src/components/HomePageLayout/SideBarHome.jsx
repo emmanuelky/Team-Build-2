@@ -1,5 +1,4 @@
 import React from "react";
-import SideBar from "../SideBar";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useEffect, useState } from "react";
 import { useParams } from "react-router";
@@ -11,6 +10,9 @@ import {
   FaCalendarWeek,
 } from "react-icons/fa";
 import "./SideBarHome.css";
+import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
+import { faArrowRight, faBookmark } from '@fortawesome/free-solid-svg-icons'
+
 export default function SideBarHome() {
   const [profileData, setProfileData] = useState({});
   let { id } = useParams();
@@ -27,57 +29,61 @@ export default function SideBarHome() {
   }, [id]);
 
   return (
-    <div className="d-flex flex-column align-items-center" id="sidebardiv">
-      <Card style={{ width: "15rem", marginRight: "50px", padding: "0px" }}>
+    <div className="d-flex flex-column align-items-center mr-2" id="sidebardiv">
+      <Card style={{ width: "15rem" }} id="leftSidebar" className="mb-2 border makeItStick">
         <Card.Img
+          id="sidebarCoverImg"
+          className="mb-3"
           variant="center"
           src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/wp-cms/uploads/2021/03/LinkedIn-Default-Background-2020-.jpg"
         />
         <Card.Body>
           <Card.Img
             variant="top"
+            id="leftSidebarImg"
             style={{
               borderRadius: "50%",
               width: "70px",
               height: "70px",
               marginLeft: "40px",
+              border: "2px solid rgb(255, 255, 255)",
             }}
             className="mx-150  display:block"
             src={profileData.image}
           />
-          <Card.Title>
-            {profileData.name} {profileData.surname}
-          </Card.Title>
-          <Card.Text>{profileData.title}</Card.Text>
+          <Card.Text className="text-center">
+            <span style={{ 'font-size': '16px' }}><strong>{profileData.name} {profileData.surname}</strong></span>
+            <br/>
+            <span className="text-muted followers">{profileData.title}</span>
+          </Card.Text>
         </Card.Body>
         <ListGroup className="list-group-flush">
           <ListGroupItem id="userdetails">
             Who viewed your profile{" "}
-            <span>
+            <span style={{ 'margin-left': '30px' }}>
               <a href="#">54</a>
             </span>
             <br /> Views of your post{" "}
-            <span>
+            <span style={{ 'margin-left': '60px' }}>
               <a href="#">925</a>
             </span>
           </ListGroupItem>
           <ListGroupItem id="userdetails">
-            Access exclusive tools & insights
+            <span className="text-muted">Access exclusive tools & insights</span>
             <br />
             <span> 🟨</span>
             <span className="pl-2">
               <strong>Retry Premium Free</strong>
             </span>
           </ListGroupItem>
-          <ListGroupItem id="userdetails">
-            <FaRegBookmark id="dashboardIcon" />
-            <span id="myitems"> My items</span>
+          <ListGroupItem id="userdetails" id="myItems">
+            <span className="text-muted"><strong><FontAwesomeIcon icon={faBookmark} /> My items</strong></span>
           </ListGroupItem>
         </ListGroup>
       </Card>
 
       {/* bottom part */}
-      <Card style={{ width: "15rem", marginRight: "50px", padding: "0px" }}>
+      <Card style={{ width: "15rem" }}>
         <Card.Header id="headings">Recent</Card.Header>
         <Card.Body>
           <Card.Text id="userdetails">
