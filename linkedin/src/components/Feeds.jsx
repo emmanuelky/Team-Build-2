@@ -103,7 +103,7 @@ const Feeds = () => {
 
     return (
         <>
-            <div onClick={handleShow} className="d-flex border bg-white mx-3 ml-4 mb-2" style={{ borderRadius: '12px', border: '1px' }}>
+            <div onClick={handleShow} className="d-flex border bg-white mx-3 ml-4 mb-3" style={{ borderRadius: '12px', border: '1px' }}>
                 <div className="mt-1 mx-2 p-2">
                     <div className="d-flex flex-column align-items-center">
                         <div className="d-flex">
@@ -186,7 +186,7 @@ const Feeds = () => {
 
             {posts.flat(20).reverse().slice(0, 10).map(post => (
 
-                <div key={post._id} className="d-flex justify-content-between border bg-white mx-3 ml-4 mb-2" style={{ borderRadius: '12px', border: '1px' }}>
+                <div key={post._id} className="d-flex justify-content-between border bg-white mx-3 ml-4 mb-3" style={{ borderRadius: '12px', border: '1px' }}>
                     <div className="mt-3 mx-3">
                         <div className="d-flex">
                             <img

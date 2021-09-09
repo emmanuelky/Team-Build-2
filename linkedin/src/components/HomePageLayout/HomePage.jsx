@@ -1,6 +1,7 @@
 import React from 'react'
 import MyNavbar from '../MyNavbar'
 import MyFooter from '../MyFooter'
+import RightSidebar from '../RightSidebar'
 import Feeds from '../Feeds'
 
 import './HomePage.css'
@@ -9,7 +10,7 @@ const HomePage = () => {
     return (
         <div>
             <div className='d-flex flex-column align-items-center flex-wrap' >
-                <div className='d-flex flex-wrap border text-center mb-5' style={{ 'width': '100vw' }}>
+                <div className='d-flex flex-wrap border text-center mb-4' style={{ 'width': '100vw' }}>
                     <MyNavbar />
                     <h2>navbar</h2>
                 </div>
@@ -29,9 +30,9 @@ const HomePage = () => {
                         </div>
 
                     </div>
-                    <div className='border home-sidebar-1 m-1' >
+                    <div className='border home-sidebar-1 ml-3' >
 
-                        <h2>sidebar2</h2>
+                        <RightSidebar />
                     </div>
                 </div>
 

@@ -105,3 +105,17 @@ body {
   border-radius: 10px;
 }
 
+#rightInfo {
+  margin-left: 110px;
+}
+
+#rightInfo2 {
+  margin-left: 50px;
+}
+
+#rightbarImg {
+  border-radius: 50%;
+  width: 50px;
+  height: 50px;
+}
+
