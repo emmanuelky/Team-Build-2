@@ -51,11 +51,6 @@ const Feeds = () => {
         fetchPosts()
 
     }, []);
-
-
-
-
-
     const fixDate = (date) => {
         try {
             return format(parseISO(date), "h:mm a");
@@ -94,9 +89,11 @@ const Feeds = () => {
                 }
             )
             if (res.ok) {
+                alert("Post added successfully")
                 const data = await res.json()
                 setPosts(data)
-
+            } else {
+                alert("Post not found")
             }
 
 
@@ -160,30 +157,34 @@ const Feeds = () => {
             </div>
 
             <Modal show={show} onHide={handleClose}>
-                <Modal.Header closeButton>
-                    <Modal.Title>Add Post</Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <Form onSubmit={handlePostSubmit}>
-                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+                <div className="d-flex flex-column">
 
-                            <Form.Control
-                                as="textarea"
-                                placeholder="What do you want to talk about? I will complete the styling later today guys"
-                                rows={3}
-                                value={text}
-                                onChange={(e) => onInputChange(e)}
-                            />
-                        </Form.Group>
-                    </Form></Modal.Body>
-                <Modal.Footer>
-                    <Button variant="secondary" onClick={handleClose}>
-                        Close
-                    </Button>
-                    <Button variant="primary" onClick={handlePostSubmit} >
-                        Post
-                    </Button>
-                </Modal.Footer>
+
+                    <Modal.Header closeButton>
+                        <Modal.Title>Create a post</Modal.Title>
+                    </Modal.Header>
+                    <Modal.Body>
+                        <Form onSubmit={handlePostSubmit}>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+
+                                <Form.Control
+                                    as="textarea"
+                                    placeholder="What do you want to talk about? I will complete the styling later today guys"
+                                    rows={3}
+                                    value={text}
+                                    onChange={(e) => onInputChange(e)}
+                                />
+                            </Form.Group>
+                        </Form></Modal.Body>
+                    <Modal.Footer>
+                        <Button variant="secondary" onClick={handleClose}>
+                            Close
+                        </Button>
+                        <Button variant="primary" onClick={handlePostSubmit} >
+                            Post
+                        </Button>
+                    </Modal.Footer>
+                </div>
             </Modal>
 
 
