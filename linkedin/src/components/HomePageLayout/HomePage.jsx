@@ -12,7 +12,7 @@ const HomePage = () => {
     <div>
       <div className="d-flex flex-column align-items-center flex-wrap">
         <div
-          className="d-flex flex-wrap border text-center mb-4"
+          className="d-flex flex-wraptext-center mb-4"
           style={{ width: "100vw" }}
         >
           <MyNavbar />
@@ -20,8 +20,8 @@ const HomePage = () => {
         </div>
 
         <div className="d-flex flex-wrap my-5">
-          <div className="border flex-column flex-wrap home-sidebar-2 m-1">
-            <div className=" mb-3">
+          <div className="flex-column flex-wrap home-sidebar-2 m-1">
+            <div id="makeItStick" className=" mb-3">
               <SideBarHome />
             </div>
           </div>
@@ -30,12 +30,12 @@ const HomePage = () => {
               <Feeds />
             </div>
           </div>
-          <div className="border home-sidebar-1 ml-3">
+          <div className="home-sidebar-1 ml-3">
             <RightSidebar />
           </div>
         </div>
 
-        <div className=" border w-100">
+        <div className="w-100">
           <div>
             <MyFooter />
           </div>

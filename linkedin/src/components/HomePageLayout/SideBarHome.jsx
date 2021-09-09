@@ -4,7 +4,6 @@ import { useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { fetchdata, fetchMe, fetchUser } from "../../functions/fetches";
 import {
-  FaRegBookmark,
   FaHashtag,
   FaUsers,
   FaCalendarWeek,
@@ -84,8 +83,8 @@ export default function SideBarHome() {
 
       {/* bottom part */}
       <Card style={{ width: "15rem" }}>
-        <Card.Header id="headings">Recent</Card.Header>
         <Card.Body>
+          <Card.Text>Recent</Card.Text>
           <Card.Text id="userdetails">
             <FaUsers /> Germany's Virtual Recruiting
             <br />
