@@ -50,7 +50,7 @@ const Feeds = () => {
             }
         }
         fetchPosts()
-        getData(posts)
+
     }, []);
 
 
@@ -63,14 +63,6 @@ const Feeds = () => {
             return `Present`;
         }
     };
-
-
-
-
-
-
-
-
 
 
 
@@ -103,6 +95,7 @@ const Feeds = () => {
             if (res.ok) {
                 const data = await res.json()
                 setPosts(data)
+
             }
 
 
@@ -114,14 +107,6 @@ const Feeds = () => {
         })
 
     }
-
-    const getData = (data) => {
-        return console.log(data)
-    }
-
-    useEffect(() => {
-
-    }, [])
 
 
     return (
@@ -165,7 +150,7 @@ const Feeds = () => {
             </Modal>
 
 
-            {posts.slice(1240).map(post => (
+            {posts.flat(20).reverse().slice(0, 10).map(post => (
 
                 <div key={post._id} className="d-flex justify-content-between border rounded bg-white mx-3 ml-4 mb-2">
                     <div className="mt-3 mx-3">
