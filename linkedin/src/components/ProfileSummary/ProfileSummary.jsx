@@ -40,15 +40,25 @@ const ProfileSummary = () => {
                 <h6><a id="fontsizeP" href="">20 connections</a></h6>
             </div>
             <div className="mt-2 ml-4">
-                <Button className="mr-1 badge-pill" size="sm" variant="primary">
-                    <strong>Open to</strong>
-                </Button>
-                <Button className="mr-1 badge-pill" size="sm" variant="outline-secondary">
-                    <strong>Add section</strong>
-                </Button>
-                <Button className="badge-pill" size="sm" variant="outline-secondary">
-                    <strong>More</strong>
-                </Button>
+                {id ? <>
+                    <Button className="mr-1 badge-pill" size="sm" variant="primary">
+                        <strong>Message</strong>
+                    </Button>
+                    <Button className="badge-pill" size="sm" variant="outline-secondary">
+                        <strong>More</strong>
+                    </Button>
+                </> : 
+                <>
+                    <Button className="mr-1 badge-pill" size="sm" variant="primary">
+                        <strong>Open to</strong>
+                    </Button>
+                    <Button className="mr-1 badge-pill" size="sm" variant="outline-secondary">
+                        <strong>Add section</strong>
+                    </Button>
+                    <Button className="badge-pill" size="sm" variant="outline-secondary">
+                        <strong>More</strong>
+                    </Button>
+                </>}
             </div>
             <div id="openToWork" className="mt-3 ml-4">
                 {!id && <FaPen id="pen3" />}
