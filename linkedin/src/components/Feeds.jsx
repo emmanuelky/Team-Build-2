@@ -222,7 +222,7 @@ const Feeds = () => {
                         </Form></Modal.Body>
                     <Modal.Footer>
                         <Button variant="success" onClick={handlePostEdit}>
-                            Edit
+                            Save
                         </Button>
                         <Button variant="primary" onClick={handlePostSubmit} >
                             Post
