@@ -2,7 +2,6 @@ import { React, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { format, parseISO } from "date-fns";
 import { Card, Button, Modal, Form } from "react-bootstrap"
-import AddPost from './AddPost'
 import axios from "axios"
 
 
@@ -36,7 +35,7 @@ const Feeds = () => {
                         method: "GET",
                         headers: {
                             Authorization:
-                                " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM3Mjk5YmIwMWIwZDAwMTUxNjY5MDQiLCJpYXQiOjE2MzEwMDUwODMsImV4cCI6MTYzMjIxNDY4M30.yJM7cebFnDP0ayfuxT3X6Wl47Nhme9pIbmgYBPwhViM",
+                                " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
                         },
                     }
                 );
@@ -107,6 +106,18 @@ const Feeds = () => {
         })
 
     }
+
+
+
+    useEffect(() => {
+        const updatedPosts = () => {
+            if (posts.ok) {
+                return
+            }
+        }
+        updatedPosts()
+    }, [posts])
+
 
     return (
         <>
