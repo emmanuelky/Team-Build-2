@@ -49,7 +49,7 @@ const Experiences = () => {
           <h5>Experiences </h5>
         </div>
         {/* <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-none"><i class="fas fa-plus"></i></div> */}
-        <Modalbox />
+        {id ? <React.Fragment /> : <Modalbox />}
         {/* <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-block"><i class="fas fa-plus"></i></div> */}
       </div>
 
@@ -76,7 +76,7 @@ const Experiences = () => {
           </div>
           <div className="mt-3">
             <div className="mb-4">
-            <Modalbox isEdit={true} experience={experience} />
+            {id ? <React.Fragment /> : <Modalbox isEdit={true} experience={experience} />}
               {" "}
             </div>
           </div>
