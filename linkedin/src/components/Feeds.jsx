@@ -25,32 +25,34 @@ const Feeds = () => {
 
 
     //FETCH POSTS
-
-    useEffect(() => {
-        const fetchPosts = async () => {
-            try {
-                const response = await fetch(
-                    `https://striveschool-api.herokuapp.com/api/posts/`,
-                    {
-                        method: "GET",
-                        headers: {
-                            Authorization:
-                                " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
-                        },
-                    }
-                );
-                if (response.ok) {
-                    const data = await response.json();
-                    console.log(posts);
-                    setPosts(data)
+    const fetchPosts = async () => {
+        try {
+            const response = await fetch(
+                `https://striveschool-api.herokuapp.com/api/posts/`,
+                {
+                    method: "GET",
+                    headers: {
+                        Authorization:
+                            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+                    },
                 }
-            } catch (error) {
-                console.log(error);
+            );
+            if (response.ok) {
+                const data = await response.json();
+                console.log(posts);
+                setPosts(data)
             }
+        } catch (error) {
+            console.log(error);
         }
+    }
+    useEffect(() => {
+
         fetchPosts()
 
     }, []);
+
+
     const fixDate = (date) => {
         try {
             return format(parseISO(date), "h:mm a");
@@ -77,7 +79,7 @@ const Feeds = () => {
         e.preventDefault()
         try {
 
-            const res = await axios.post(
+            const { data } = await axios.post(
                 `https://striveschool-api.herokuapp.com/api/posts/`, addpost,
                 {
 
@@ -88,14 +90,8 @@ const Feeds = () => {
                     },
                 }
             )
-            if (res.ok) {
-                alert("Post added successfully")
-                const data = await res.json()
-                setPosts(data)
-            } else {
-                alert("Post not found")
-            }
-
+            setPosts([...posts, data])
+            setShow(false)
 
         } catch (error) {
             console.log(error);
