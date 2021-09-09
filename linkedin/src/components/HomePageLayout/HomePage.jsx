@@ -16,7 +16,7 @@ const HomePage = () => {
 
                 <div className='d-flex flex-wrap my-5' >
 
-                    <div className='border flex-column flex-wrap home-sidebar-2 m-2'>
+                    <div className='border flex-column flex-wrap home-sidebar-2 m-1'>
                         <div className=' mb-3'>
                             <h3>Sidebar1</h3>
                         </div>
@@ -29,7 +29,7 @@ const HomePage = () => {
                         </div>
 
                     </div>
-                    <div className='border home-sidebar-1 m-2' >
+                    <div className='border home-sidebar-1 m-1' >
 
                         <h2>sidebar2</h2>
                     </div>
