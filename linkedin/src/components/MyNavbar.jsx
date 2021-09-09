@@ -331,7 +331,7 @@ export default function MyNav() {
               </div>
             </Nav.Link>
 
-            <Nav.Link href="#home" className="premium">
+            <Nav.Link href="#home" className="premium text-center">
               Try Premium For <br /> Free
             </Nav.Link>
           </Nav>

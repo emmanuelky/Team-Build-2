@@ -10,7 +10,7 @@ import {
 } from "react-icons/fa";
 import "./SideBarHome.css";
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faBookmark } from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faBookmark, faCalendarWeek, faHashtag, faUsers } from '@fortawesome/free-solid-svg-icons'
 
 export default function SideBarHome() {
   const [profileData, setProfileData] = useState({});
@@ -82,34 +82,33 @@ export default function SideBarHome() {
       </Card>
 
       {/* bottom part */}
-      <Card style={{ width: "15rem" }}>
+      <Card id="leftSidebar" style={{ width: "15rem" }}>
         <Card.Body>
-          <Card.Text>Recent</Card.Text>
-          <Card.Text id="userdetails">
-            <FaUsers /> Germany's Virtual Recruiting
+          <Card.Text>
+            <span><strong>Recent</strong></span>
             <br />
+            <span className="text-muted"><FontAwesomeIcon icon={faUsers} /> Germany's Virtual Recruiting</span>
             <br />
-            <FaCalendarWeek />
-            Web Design and Development, UX/UI
+            <span className="text-muted"><FontAwesomeIcon icon={faCalendarWeek} /> Web Design and Development...</span>
             <br />
           </Card.Text>
-          <Card.Title id="headings"> Groups</Card.Title>
-          <Card.Text id="userdetails">
-            <FaUsers />
-            Web Design and Development, UX/UIt
+          <Card.Text>
+            <span><a href=""><strong>Groups</strong></a></span>
+            <br/>
+            <span className="text-muted"><FontAwesomeIcon icon={faUsers} /> Web Design and Developmen...</span>
             <br />
-            <a href="#">See all</a>
           </Card.Text>
-          <Card.Title id="headings"> Events</Card.Title>
-          <Card.Text id="userdetails">
-            <FaUsers />
-            Germany's Virtual Recruiting & Branding Event
+          <Card.Text>
+          <span><a href=""><strong>Events</strong></a></span> 
+          <br/>
+          <span className="text-muted"><FontAwesomeIcon icon={faUsers} /> Germany's Virtual Recruiting ...</span>
           </Card.Text>
-          <Card.Title id="headings"> Followed Hastags</Card.Title>
-          <Card.Text id="userdetails">
-            <FaHashtag /> job seekers
+          <Card.Text>
+          <span><a href=""><strong>Followed Hashtags</strong></a></span>
+            <br/>
+            <span className="text-muted"><FontAwesomeIcon icon={faHashtag} /> Job Seekers</span>
             <br />
-            <FaHashtag /> React
+            <span className="text-muted"><FontAwesomeIcon icon={faHashtag} /> ReactJS</span>
           </Card.Text>
         </Card.Body>
       </Card>
