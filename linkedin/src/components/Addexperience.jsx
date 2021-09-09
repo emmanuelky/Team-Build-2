@@ -2,15 +2,21 @@ import React from "react";
 import { useState } from "react";
 import { Form, Col, Button } from "react-bootstrap";
 
-export default function Addexperience() {
-  const [experience, setExperience] = useState({
+const Addexperience = (props) => {
+  const defaultExperience = {
     role: "",
     company: "",
     startDate: "",
     endDate: "",
     description: "",
     area: "",
-  });
+  }
+  console.log("props.experience: ", props.experience)
+  const [experience, setExperience] = useState(defaultExperience);
+
+  const propExperience = props.experience
+  const isEdit = props.isEdit
+
   const handleSubmit = async (e, userId) => {
     e.preventDefault();
     try {
@@ -153,3 +159,4 @@ export default function Addexperience() {
     </div>
   );
 }
+export default Addexperience

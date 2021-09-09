@@ -4,21 +4,29 @@ import {
   fetchdata,
   fetchMyExperience,
   fetchExperiences,
+  fetchMe
 } from "../functions/fetches";
 import { useState } from "react";
 import { useParams } from "react-router-dom";
 import { format, parseISO } from "date-fns";
-import Modal from "./Modal";
+import Modalbox from "./Modal";
 
 const Experiences = () => {
   const [experiences, setExperiences] = useState([]);
   let { id } = useParams();
 
   useEffect(async () => {
-    let data;
-    if (id) {
-      data = await fetchExperiences(id);
-      setExperiences(data);
+    // let data;
+    console.log("id is: ", id)
+    if (id !== undefined) {
+      let data = await fetchExperiences(id);
+      setExperiences(data)
+      console.log("experiences is: ", data)
+    } else if (id === undefined) {
+      let user = await fetchMe()
+      let userExperiences = await fetchExperiences(user._id)
+      console.log("experiences is: ", userExperiences)
+      setExperiences(userExperiences)
     }
     // else {
     //     data = await fetchMyExperience()
@@ -35,17 +43,17 @@ const Experiences = () => {
   };
 
   return (
-    <div id="educationDiv" className="d-flex flex-column bg-white border">
+    <div id="experienceDiv" className="d-flex flex-column bg-white border">
       <div className="d-flex justify-content-between ml-4 mx-3">
         <div className="align-self-center mt-4 mt-3">
           <h5>Experiences </h5>
         </div>
         {/* <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-none"><i class="fas fa-plus"></i></div> */}
-        <Modal />
+        <Modalbox />
         {/* <div id="eduIconColor" className="align-self-center mt-4 mr-3 d-block"><i class="fas fa-plus"></i></div> */}
       </div>
 
-      {experiences.map((experience) => (
+      {experiences !== [] && experiences && experiences.map((experience) => (
         <div className="d-flex justify-content-between mx-3 ml-4 mb-4">
           <div className="mt-3">
             <div className="d-flex">
@@ -67,9 +75,9 @@ const Experiences = () => {
             </div>
           </div>
           <div className="mt-3">
-            <div id="eduIconColor" className="mb-4 mr-3">
+            <div className="mb-4 mr-3">
+            <Modalbox isEdit={true} experience={experience} />
               {" "}
-              <i class="fas fa-pen"></i>
             </div>
           </div>
         </div>
