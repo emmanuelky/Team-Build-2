@@ -1,8 +1,9 @@
 import { React, useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, Link } from "react-router-dom";
 import { format, parseISO } from "date-fns";
 import { Card, Button, Modal, Form } from "react-bootstrap"
 import axios from "axios"
+import GetSinglePost from "./GetSinglePost";
 
 
 
@@ -11,9 +12,6 @@ const Feeds = () => {
     const [addpost, setAddpost] = useState({
         text: ''
     })
-
-
-    let { id } = useParams();
 
 
     //Post Modal
@@ -42,7 +40,7 @@ const Feeds = () => {
             );
             if (response.ok) {
                 const data = await response.json();
-                console.log(posts);
+                // console.log(posts);
                 setPosts(data)
             }
         } catch (error) {
@@ -105,34 +103,38 @@ const Feeds = () => {
     }
 
 
-    //Get post
+    //Get Single post
 
-    const viewSinglePost = async (e) => {
-        e.preventDefault()
-        try {
+    // useEffect(() => {
+    //     getSinglePost()
+    // }, [])
 
-            const { data } = await axios.get(
-                `https://striveschool-api.herokuapp.com/api/posts/${id}`,
-                {
+    // const getSinglePost = async () => {
+    //     // e.preventDefault()
+    //     try {
 
-                    headers: {
-                        "content-Type": "application/json",
-                        Authorization:
-                            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
-                    },
-                }
-            )
-            setPosts([...posts, data])
-            setShow(false)
+    //         const { postdata } = await axios.get(
+    //             `https://striveschool-api.herokuapp.com/api/posts/${id}`,
+    //             {
 
-        } catch (error) {
-            console.log(error);
-        }
-        setAddpost({
-            text: ''
-        })
-    }
+    //                 headers: {
+    //                     "content-Type": "application/json",
+    //                     Authorization:
+    //                         " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+    //                 },
+    //             }
+    //         )
+    //         setPosts(postdata)
+    //         console.log(postdata)
+    //         setShow(false)
 
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    //     setAddpost({
+    //         text: ''
+    //     })
+    // }
 
     return (
         <>
@@ -204,11 +206,14 @@ const Feeds = () => {
                                 <span className="my-3 flex-wrap" style={{ fontSize: '13px' }}>{post.text} </span>
 
                                 {/* View Single Post */}
-                                {/* onClick={viewSinglePost} */}
-                                <div onClick={() => setShowSingle(true)} >
+                                {/* onClick={getSinglePost} */}
+
+
+                                {/* <Link to={`/posts/${post._id}`}> */}
+                                <div onClick={() => setShowSingle(true)}>
                                     <img src={post.user.image} alt="" className="img-fluid" />
                                 </div>
-
+                                {/* </Link> */}
                                 <div className="mt-3 d-flex text-muted border-top" style={{ fontSize: '18px' }}>
                                     <div className="m-2">
                                         <i class="far fa-thumbs-up"></i>
@@ -303,9 +308,9 @@ const Feeds = () => {
                             </Form.Group>
                         </Form></Modal.Body>
                     <Modal.Footer>
-                        {/* <Button variant="success" onClick={}>
-                            Save
-                        </Button> */}
+                        <Button variant="success">
+                            Update
+                        </Button>
                         <Button variant="primary" onClick={handlePostSubmit} >
                             Post
                         </Button>
@@ -314,30 +319,30 @@ const Feeds = () => {
             </Modal>
 
 
+            {posts.flat(20).reverse().slice(0, 10).map(post => (<>
 
-            {/* Single Post Modal */}
+                <Modal
+                    show={showsingle}
+                    onHide={() => setShowSingle(false)}
+                    dialogClassName="modal-90w"
+                    aria-labelledby="example-custom-modal-styling-title"
+                >
+                    <Modal.Header closeButton>
+                        <Modal.Title id="example-custom-modal-styling-title">
 
-            <Modal
-                show={showsingle}
-                onHide={() => setShowSingle(false)}
-                dialogClassName="modal-90w"
-                aria-labelledby="example-custom-modal-styling-title"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-custom-modal-styling-title">
-                        Custom Modal Styling
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>
-                        Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
-
-                    </p>
-                </Modal.Body>
-            </Modal>
+                        </Modal.Title>
+                    </Modal.Header >
+                    <Modal.Body>
 
 
+                        <GetSinglePost id={post._id} />
 
+
+                    </Modal.Body>
+                </Modal >
+
+
+            </>))}
 
 
 
