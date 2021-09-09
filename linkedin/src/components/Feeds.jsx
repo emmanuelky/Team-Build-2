@@ -194,7 +194,7 @@ const Feeds = () => {
                                 className="rounded-pill"
                                 src={post.user.image}
                                 alt=""
-                                style={{ width: '50px', height: '50px' }}
+                                style={{ width: '20px', height: '20px' }}
                             />
                             <div className=" ml-2 d-flex flex-column text-left mb-3">
                                 <span style={{ fontSize: '13px' }}><strong>{post.user.name}</strong></span>
