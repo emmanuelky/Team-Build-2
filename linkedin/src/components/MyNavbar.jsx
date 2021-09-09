@@ -6,6 +6,7 @@ import {
   Nav,
   NavDropdown,
   Form,
+  Row,
   FormControl,
   InputGroup,
   Col,
@@ -169,16 +170,29 @@ export default function MyNav() {
                   className="d-flex px-auto mx-4"
                   style={{ padding: "none" }}
                 >
-                  <Link id="dropdownName" to="/user"><div className="ml-3 mb-2" id="dropdownName"><img className="mr-2" src={userData.image} width="30" height="30" alt="Ndasfame" id="ember30" />{userData.name} {userData.surname}</div></Link>
-                  <NavDropdown.Item href="#action/3.1">Settings & Privacy</NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.2">
+                  <Link id="dropdownName" to="/user"><Row className="ml-2 mb-1" id="dropdownName">
+                    <img className="mr-2 mb-1" src={userData.image} width="55" height="55" alt="Ndasfame" id="ember30" />
+                    <div className="dropdownUser"><span style={{ fontSize: "14px" }}><strong>{userData.name} {userData.surname}</strong></span>
+                  <br/><span className="">{userData.title}</span></div></Row>
+                  <Button className="rounded-pill ml-2 mr-2 dropdownButton" size="sm" variant="outline-primary">View Profile</Button>
+                  </Link>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item href="#action/3.1"><strong>Account</strong></NavDropdown.Item>
+                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.1">Settings & Privacy</NavDropdown.Item>
+                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.2">
                     Help
                   </NavDropdown.Item>
-                  <NavDropdown.Item href="#action/3.3">
+                  <NavDropdown.Item style={{ fontSize: "14px" }} className="text-muted" href="#action/3.3">
                     Language
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.4">
+                  <NavDropdown.Item href="#action/3.1"><strong>Manage</strong></NavDropdown.Item>
+                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.1">Posts & Activity</NavDropdown.Item>
+                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.2">
+                    Job Posting Account
+                  </NavDropdown.Item>
+                  <NavDropdown.Divider />
+                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.4">
                     Sign Out
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -199,12 +213,12 @@ export default function MyNav() {
               </svg>
               <div>
                 <NavDropdown title="Work" className="mt-0 mr-0">
-                  <Modal.Dialog scrollable="true">
+                  <Modal.Dialog  className="ml-3" scrollable="true">
                     <Modal.Header closeButton>
-                      <Modal.Title>Visit More Linkedin Products</Modal.Title>
+                      <Modal.Title style={{ fontSize: "15px" }}><strong>Visit More Linkedin Products</strong></Modal.Title>
                     </Modal.Header>
 
-                    <Modal.Body>
+                    <Modal.Body className="pr-5">
                       <Table striped bordered hover>
                         <thead>
                           <tr>
@@ -240,7 +254,7 @@ export default function MyNav() {
                             </td>
                           </tr>
                         </thead>
-                        <tbody>
+                        <thead>
                           <tr>
                             <td>
                               <a href="">
@@ -274,49 +288,49 @@ export default function MyNav() {
                             </td>
                           </tr>
                           <tr></tr>
-                        </tbody>
+                        </thead>
                       </Table>
                       <div>
-                        <h5 className="text-center">
+                        <h5 style={{ fontSize: "15px" }} className="ml-1 mt-3 mb-3">
                           {" "}
-                          Linkedin Business Services
+                          <strong>Linkedin Business Services</strong>
                         </h5>
                         <ListGroup className="Links-modal">
                           <ListGroup.Item>
                             {" "}
-                            <a href="">
+                            <a style={{ fontSize: "15px" }} href="">
                               Talent Solutions <br />
-                              <span>Find,attract and recruit talent</span>
+                              <span style={{ fontWeight: "normal" }} className="text-muted">Find, attract and recruit talent</span>
                             </a>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             {" "}
-                            <a href="">
+                            <a style={{ fontSize: "15px" }} href="">
                               Sales Solutions <br />
-                              <span>Unlock sales opportunities</span>
+                              <span style={{ fontWeight: "normal" }} className="text-muted">Unlock sales opportunities</span>
                             </a>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             {" "}
-                            <a href="">
+                            <a style={{ fontSize: "15px" }} href="">
                               Post a job for free <br />
-                              <span>
+                              <span style={{ fontWeight: "normal" }} className="text-muted">
                                 Get your job in front of quality candidate
                               </span>
                             </a>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             {" "}
-                            <a href=""> Marketing Solutions<br />
-                              <span>
+                            <a style={{ fontSize: "15px" }} href=""> Marketing Solutions<br />
+                              <span style={{ fontWeight: "normal" }} className="text-muted">
                                 Acquire customers and grow your business
                               </span></a>
                           </ListGroup.Item>
                           <ListGroup.Item>
                             {" "}
-                            <a href="">
+                            <a style={{ fontSize: "15px" }} href="">
                               Learning Solutions <br />
-                              <span>
+                              <span style={{ fontWeight: "normal" }} className="text-muted">
                                 Develop talent across your organization
                               </span>
                             </a>{" "}

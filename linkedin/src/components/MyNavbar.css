@@ -38,3 +38,7 @@ td {
 #dropdownName:hover {
   text-decoration: none;
 }
+
+.dropdownButton {
+  width: 250px;
+}
