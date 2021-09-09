@@ -1,14 +1,17 @@
 import React from 'react'
 import { Card } from 'react-bootstrap'
+import { useParams } from 'react-router'
 
 const Education = () => {
+    let { id } = useParams()
+
     return (
         <div id="educationDiv" className='d-flex flex-column bg-white border'>
             <div className='d-flex justify-content-between ml-4 mx-3'>
                 <div className='align-self-center mt-4 mt-3'>
                     <h5>Education </h5>
                 </div>
-                <div id="eduIconColor" className="align-self-center mt-4 mr-3"><i class="fas fa-plus"></i></div>
+                {id ? <React.Fragment /> : <div id="eduIconColor" className="align-self-center mt-4 mr-3"><i class="fas fa-plus"></i></div>}
             </div>
 
             <div className='d-flex justify-content-between mx-3 ml-4 mb-4'>
@@ -25,7 +28,7 @@ const Education = () => {
 
                 </div>
                 <div className='mt-3'>
-                    <div id="eduIconColor" className="mb-4 mr-3"> <i class="fas fa-pen"></i></div>
+                    {id ? <React.Fragment /> : <div id="eduIconColor" className="mb-4 mr-3"> <i class="fas fa-pen"></i></div>}
                 </div>
 
             </div>
