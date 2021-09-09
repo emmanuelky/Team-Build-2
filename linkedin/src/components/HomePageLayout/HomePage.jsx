@@ -24,6 +24,7 @@ const HomePage = () => {
                     </div>
                     <div className='flex-column flex-wrap feeds'>
                         <div className=''>
+
                             <Feeds />
                         </div>
 

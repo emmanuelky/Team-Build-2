@@ -1,13 +1,31 @@
 import { React, useEffect, useState } from "react";
 import { useParams } from "react-router";
 import { format, parseISO } from "date-fns";
-import { Card, Button, } from "react-bootstrap"
+import { Card, Button, Modal, Form } from "react-bootstrap"
+import AddPost from './AddPost'
+import axios from "axios"
+
 
 const Feeds = () => {
     const [posts, setPosts] = useState([]);
+    const [addpost, setAddpost] = useState({
+        text: ''
+    })
+
+
     let { id } = useParams();
 
 
+    //Modal
+    const [show, setShow] = useState(false);
+    const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+
+
+
+    //FETCH POSTS
 
     useEffect(() => {
         const fetchPosts = async () => {
@@ -32,7 +50,9 @@ const Feeds = () => {
             }
         }
         fetchPosts()
+        getData(posts)
     }, []);
+
 
 
     const fixDate = (date) => {
@@ -45,14 +65,109 @@ const Feeds = () => {
     };
 
 
+
+
+
+
+
+
+
+
+
+    //ADD POST
+
+    const { text } = addpost
+
+    const onInputChange = (e) => {
+        e.preventDefault();
+        setAddpost({ ...addpost, text: e.target.value });
+
+    }
+
+
+    const handlePostSubmit = async (e) => {
+        e.preventDefault()
+        try {
+
+            const res = await axios.post(
+                `https://striveschool-api.herokuapp.com/api/posts/`, addpost,
+                {
+
+                    headers: {
+                        "content-Type": "application/json",
+                        Authorization:
+                            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+                    },
+                }
+            )
+            if (res.ok) {
+                const data = await res.json()
+                setPosts(data)
+            }
+
+
+        } catch (error) {
+            console.log(error);
+        }
+        setAddpost({
+            text: ''
+        })
+
+    }
+
+    const getData = (data) => {
+        return console.log(data)
+    }
+
+    useEffect(() => {
+
+    }, [])
+
+
     return (
         <>
 
+            {/* <Button variant="primary" onClick={handleShow}> */}
+            <div onClick={handleShow} className="d-flex justify-content-between border rounded bg-white mx-3 ml-4 mb-2">
+                <div className="mt-3 mx-3">
+                    <button>Post</button>
+                </div>
+            </div>
+            {/* </Button> */}
 
 
-            {posts.slice(0, 50).map(post => (
 
-                <div className="d-flex justify-content-between border rounded bg-white mx-3 ml-4 mb-2">
+            <Modal show={show} onHide={handleClose}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Add Post</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <Form onSubmit={handlePostSubmit}>
+                        <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+
+                            <Form.Control
+                                as="textarea"
+                                placeholder="What do you want to talk about? I will complete the styling later today guys"
+                                rows={3}
+                                value={text}
+                                onChange={(e) => onInputChange(e)}
+                            />
+                        </Form.Group>
+                    </Form></Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleClose}>
+                        Close
+                    </Button>
+                    <Button variant="primary" onClick={handlePostSubmit} >
+                        Post
+                    </Button>
+                </Modal.Footer>
+            </Modal>
+
+
+            {posts.slice(1240).map(post => (
+
+                <div key={post._id} className="d-flex justify-content-between border rounded bg-white mx-3 ml-4 mb-2">
                     <div className="mt-3 mx-3">
                         <div className="d-flex">
                             <img

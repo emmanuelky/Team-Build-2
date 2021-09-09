@@ -9,27 +9,27 @@ function Modalbox() {
   const handleShow = () => setShow(true);
 
 
-  const deleteExperience = async (e,user,experience) => {
-    e.preventDefault() 
+  const deleteExperience = async (e, user, experience) => {
+    e.preventDefault()
 
-    
+
     try {
-        const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${experience._id}`, {
-            method: 'DELETE',
-            headers: {
-                "Authorization": `"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE", `,
-            }
-        })
-        if(response.ok) {
-            
-            alert("Experience deleted successfully")
-        } else {
-            alert("There is  some problem")
+      const response = await fetch(`https://striveschool-api.herokuapp.com/api/profile/${user._id}/experiences/${experience._id}`, {
+        method: 'DELETE',
+        headers: {
+          "Authorization": `"Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE", `,
         }
+      })
+      if (response.ok) {
+
+        alert("Experience deleted successfully")
+      } else {
+        alert("There is  some problem")
+      }
     } catch (err) {
-        console.log(err)
+      console.log(err)
     }
-}
+  }
 
   return (
     <>
@@ -40,7 +40,7 @@ function Modalbox() {
       >
         <i class="fas fa-plus"></i>
       </div>
-      
+
       {/* <Button variant="primary" onClick={handleShow}>
         +
       </Button> */}
@@ -64,7 +64,7 @@ function Modalbox() {
           <Button variant="primary">Save changes</Button>
           {/*<Button variant="danger" onClick = {(e)=>deleteExperience(e,user,experience)}>Delete</Button>*/}
 
-          
+
         </Modal.Footer>
       </Modal>
     </>
