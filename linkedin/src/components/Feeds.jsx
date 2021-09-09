@@ -102,6 +102,34 @@ const Feeds = () => {
         })
     }
 
+
+    const handlePostEdit = async (e) => {
+        e.preventDefault()
+        try {
+
+            const { data } = await axios.post(
+                `https://striveschool-api.herokuapp.com/api/posts/`, addpost,
+                {
+
+                    headers: {
+                        "content-Type": "application/json",
+                        Authorization:
+                            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+                    },
+                }
+            )
+            setPosts([...posts, data])
+            setShow(false)
+
+        } catch (error) {
+            console.log(error);
+        }
+        setAddpost({
+            text: ''
+        })
+    }
+
+
     return (
         <>
             <div onClick={handleShow} className="d-flex border bg-white mx-3 ml-4 mb-3" style={{ borderRadius: '12px', border: '1px' }}>
@@ -193,9 +221,9 @@ const Feeds = () => {
                             </Form.Group>
                         </Form></Modal.Body>
                     <Modal.Footer>
-                        {/* <Button variant="secondary" onClick={handleClose}>
-                            Close
-                        </Button> */}
+                        <Button variant="success" onClick={handlePostEdit}>
+                            Edit
+                        </Button>
                         <Button variant="primary" onClick={handlePostSubmit} >
                             Post
                         </Button>
@@ -216,12 +244,12 @@ const Feeds = () => {
                                 style={{ width: '20px', height: '20px' }}
                             />
                             <div className=" ml-2 d-flex flex-column text-left mb-3">
-                                <span style={{ fontSize: '13px' }}><strong>{post.username}</strong></span>
+                                <span style={{ fontSize: '13px' }}><strong>{post.user.name}</strong></span>
                                 <span className="text-muted" style={{ fontSize: '11px' }}>1,304 followers</span>
                                 <span className="text-muted" style={{ fontSize: '11px' }}>{fixDate(post.createdAt)} • <i class="fas fa-globe-americas"></i></span>
 
                                 <span className="my-3 flex-wrap" style={{ fontSize: '13px' }}>{post.text} </span>
-                                <img src="https://via.placeholder.com/150x200" alt="" />
+                                <img src={post.user.image} alt="" className="img-fluid" />
                                 <div className="mt-3 d-flex text-muted border-top" style={{ fontSize: '18px' }}>
                                     <div className="m-2">
                                         <i class="far fa-thumbs-up"></i>
@@ -242,6 +270,14 @@ const Feeds = () => {
                                         <span className="m-1">Send</span>
                                     </div>
 
+
+                                    {/* Edit Post */}
+
+                                    <div onClick={handleShow} className="m-2">
+                                        <i class="far fa-edit text-success align-self-center"></i>
+
+                                        <span className="m-1">Edit post</span>
+                                    </div>
 
                                 </div>
                             </div>
