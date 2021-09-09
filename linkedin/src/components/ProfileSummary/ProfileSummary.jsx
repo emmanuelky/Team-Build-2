@@ -37,7 +37,7 @@ const ProfileSummary = () => {
                 <h4>{profileData.name} {profileData.surname}</h4>
                 <h6>{profileData.title}</h6>
                 <h6 id="fontsizeP" className="text-muted">{profileData.area} • <a href="">Contact info</a></h6>
-                <h6><a id="fontsizeP" href="">20 connections</a></h6>
+                <h6><a id="fontsizeP" href="">238 connections</a></h6>
             </div>
             <div className="mt-2 ml-4">
                 {id ? <>

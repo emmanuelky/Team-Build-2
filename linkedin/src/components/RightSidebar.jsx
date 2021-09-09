@@ -60,7 +60,7 @@ const RightSidebar = () => {
 
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-2 pl-3 pr-3 pb-1 pt-3">
                 <div><h6>Today's Top Courses
-                    <FontAwesomeIcon id="rightInfo" icon={faInfoCircle} /></h6>
+                    <FontAwesomeIcon id="rightInfo" className="text-muted" icon={faInfoCircle} /></h6>
                 </div>
                 <div className='d-flex justify-content-between'>
                     <div className='mt-2'>
