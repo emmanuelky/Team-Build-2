@@ -16,12 +16,14 @@ const Feeds = () => {
     let { id } = useParams();
 
 
-    //Modal
+    //Post Modal
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
 
 
+    // Single Post Modalbox
+    const [showsingle, setShowSingle] = useState(false);
 
 
 
@@ -103,12 +105,14 @@ const Feeds = () => {
     }
 
 
-    const handlePostEdit = async (e) => {
+    //Get post
+
+    const viewSinglePost = async (e) => {
         e.preventDefault()
         try {
 
-            const { data } = await axios.post(
-                `https://striveschool-api.herokuapp.com/api/posts/`, addpost,
+            const { data } = await axios.get(
+                `https://striveschool-api.herokuapp.com/api/posts/${id}`,
                 {
 
                     headers: {
@@ -181,65 +185,14 @@ const Feeds = () => {
                 </div>
             </div>
 
-            <Modal show={show} onHide={handleClose} >
-                <div className="d-flex flex-column">
-
-
-                    <Modal.Header closeButton >
-                        <Modal.Title>Create a post</Modal.Title>
-                    </Modal.Header>
-                    <div className="d-flex">
-                        <div className='ml-3 mr-1 my-3'> <img src="data:image/png;base64,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"
-                            className="rounded-pill"
-                            alt=""
-                            style={{ width: '50px', height: '50px' }} /></div>
-                        <div className='align-self-center text-center'>
-                            <Button variant="outline-light secondary" className='rounded-pill border text-center text-muted ' size="sm" style={{ width: '200px' }} ><strong>
-                                <div className="d-flex align-items-center " style={{ fontSize: '14px' }}>
-                                    <i class="fas fa-exclamation mx-2"></i><span style={{ fontSize: '14px' }} className="mx-4">Tarun</span><i class="fas fa-caret-down mx-5"></i> </div></strong>  </Button>
-
-                        </div>
-                        <div className='align-self-center text-center mx-1'>
-                            <Button variant="outline-light secondary" className='rounded-pill border text-center text-muted ' size="sm" style={{ width: '120px' }} ><strong>
-                                <div className="d-flex align-items-center " style={{ fontSize: '14px' }}>
-                                    <i class="fas fa-globe-africa mx-1"></i><span style={{ fontSize: '14px' }} className="mx-1">Anyone</span><i class="fas fa-caret-down mx-1"></i> </div></strong>  </Button>
-
-                        </div>
-                    </div>
-                    <Modal.Body>
-                        <Form onSubmit={handlePostSubmit}>
-                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
-
-                                <Form.Control
-                                    className="text-area"
-                                    as="textarea"
-                                    placeholder="What do you want to talk about? I will complete the styling later today guys"
-                                    rows={3}
-                                    value={text}
-                                    onChange={(e) => onInputChange(e)}
-                                />
-                            </Form.Group>
-                        </Form></Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="success" onClick={handlePostEdit}>
-                            Save
-                        </Button>
-                        <Button variant="primary" onClick={handlePostSubmit} >
-                            Post
-                        </Button>
-                    </Modal.Footer>
-                </div>
-            </Modal>
-
-
-            {posts.flat(20).reverse().slice(0, 10).map(post => (
+            {posts.flat(20).reverse().slice(0, 10).map(post => (<>
 
                 <div key={post._id} className="d-flex justify-content-between border bg-white mx-3 ml-4 mb-2" style={{ borderRadius: '12px', border: '1px' }}>
                     <div className="mt-3 mx-3">
                         <div className="d-flex">
                             <img
-
-                                src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAAkFBMVEUA/4QNDg4NAAAA/4cA/4oNAAYKhkkIsF0InlQLbTwNAAkNCg0NAAgC9YAE3nUF028KfEMIpFcMPSQNKRoNBgwGxWgLYTYD6XoE5HgNFBEF2XILaDkJjUwMSSoHvGMMUy8IqloJlVAD8H4KgkcMQycHwGYJk08LWTIGy2sNIxgMNiELZDgMMB4NGRMKcz8NHRTWnNHNAAAFiklEQVR4nO2da3vaPAyGW8uhNJzKW0YZpfS0nujG/v+/G1TpBjSJ7NixxPXq/l6uPJH9RJZl9+REURRFURRFURRFURRFURRFURRFURRFURRFURRFUf4XQADcz+4AWHgdLzrNGI/ka7TzaxNEZyBaI8C1yU5D6BmztNwyqoFZboL0ocaFWIkwM3mwwA2mK1Ui5FEEbiQOZc5Fex4+RJF8JTKIMIolcBPEM4lBtJeRxujp1m0EKoRxvBBugnghb5wOYgqUaDb2OuxLf0j+n7AgxrQZRJrZxLQZRJjZxLUZxDxKGqeRbaaQOOOW9Y/YNoPkP8QEMb7NIGYpZSrGtxmkl3ErK2jDZhDTkTFOW7GZQqIIs7HnbdgM0r8REMS2bAaRYDZt2QzSy9gVtmczCL/ZtGgzhcQrXoHtZDO79G9Zg9iuzSDmiXMqtmszSC9nVNi2zSCcNfDWbaaQyGY27dsMknGZTQqbQcw3nqmYwmaQySmLwjQ2g5hnDomJbKaQ+JBeYCqbQbKX5GaTzmYQ85p6nKazmUJhJ7HClDaDCseJFTaymV6/eRPKW1p9jWozmTHTRbchZ4kFNrCZ3FyPrD2abjB/mzGroWWvuLgDd74hNBfHpG+j8N1zFvKXkzyBjl8Ms+mRCfT9VgjbzXUCuj4SJdStvYG3ifsYTZ80RwBe3YPIsfCJgJ262imZUMLJg8ggPzgGkez8sWNjVhLDDPduEqk9zo/xnonstoRTF7Mxz8Szw/ftz0hrgPoAnhyC2H8jntxi8iDzk2lv+3QIR/VPDsPiNclqgPpkRgaR7BK1Pz8XKTJ6Eg6wVHray4lf2MmNRPQkfCXr1YeQKsZf7bwikbkdLGuDmL1TY/RmZyazbhNWYn/UrPV7ZlD/13C294JkHpUZ1gSR/MYNzP4g5+5JKMVeVEokreNLaitzEQKmymyoJQV8+/JyuLYJa6ksSpkutaTof3k3k18CFe58s/cgTy6Vjm9zL1AizEuDSB0Iqagpi1wtl55YI52/ogxCfkJZKCm8kRPKPldNXyJVZ6Fko418zsqkPb+UGET7drCMMmvKZlaVuVDyfUIXDgtv5HK2bnuVzPVYOMhOyFVCbRWLHAAs7D0ymXzZ29pKpJlLHKe7hTdySVG/5hJ6zBkrZijwjpqFlans5y+ILLz9TaPJ41j0mXbhhTdqkeey4yGz8FaUXMjcGXoOhWSZhbfFVmJ+SaVrjy6bAbnIwhtsb/2gnB7qyh67QRRZeJsbY+6oJYVjm4qAw0AlAAypxh7XDSuphTeaK1eBQgtvJLXl1QPY+vND8GulEll4IzisANcz+X50Cu2NX68YmeBKo6Y8XqHw8agUgl179zNK/OpXAXa28hWY/oKagNse7Xztf5Fb8kuGYHnWkO560uCmweQXRcHv5m32xF54KclXwbBIfbwidSUDkh5yYrEZ7971MBjuMnNd2EUSyHAfXdKjajzFtpTHDZkKpumOjHJdt+fXnx8C25WJ8Nu9Pz9IINu1lz79+QFw1vTd+/NDYN2Xce3PD4H3Vk/3cmdzmG9mhV9tmw337bqtmw3/1qF9addsBGz/tms2Ei4PbtdsRFwAvdOTEF+giEu8S1p7Y8FvMwjR7xOAAJtBPDYBvZBgM0hlb2ggImwGgUmDAigtUITNIE4nD32RYjOIy8lDX8TYDBLfbOTYDGKjF/kF2QwCeVyzkWQzCNUF64ksm0H2DkcGI8xmEPqYszvSbAYhjzl7IM5mCpps7ZYLFGczSDSzycU2P0X6N2u5uZKq8MS+RJBocrkCP1KbwNVwZt5l/+NRO5tuu0kasvnT6UimyexgB8vF+rwR6/unwVHcxBfQDXYM8hRFURRFURRFURRFURRFURRFURRFURRFURRFURQlEn8A9uhZWIyTtXAAAAAASUVORK5CYII="
+                                className="rounded-pill"
+                                src={post.user.image}
                                 alt=""
                                 style={{ width: '20px', height: '20px' }}
                             />
@@ -249,7 +202,13 @@ const Feeds = () => {
                                 <span className="text-muted" style={{ fontSize: '11px' }}>{fixDate(post.createdAt)} • <i class="fas fa-globe-americas"></i></span>
 
                                 <span className="my-3 flex-wrap" style={{ fontSize: '13px' }}>{post.text} </span>
-                                <img src={post.user.image} alt="" className="img-fluid" />
+
+                                {/* View Single Post */}
+                                {/* onClick={viewSinglePost} */}
+                                <div onClick={() => setShowSingle(true)} >
+                                    <img src={post.user.image} alt="" className="img-fluid" />
+                                </div>
+
                                 <div className="mt-3 d-flex text-muted border-top" style={{ fontSize: '18px' }}>
                                     <div className="m-2">
                                         <i class="far fa-thumbs-up"></i>
@@ -293,9 +252,92 @@ const Feeds = () => {
                     </div>
                 </div>
 
+            </>
+
+
             ))
 
             }
+
+
+            <Modal show={show} onHide={handleClose} >
+                <div className="d-flex flex-column">
+
+
+                    <Modal.Header closeButton >
+                        <Modal.Title>Create a post</Modal.Title>
+                    </Modal.Header>
+                    <div className="d-flex">
+                        <div className='ml-3 mr-1 my-3'> <img src="data:image/png;base64,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"
+                            className="rounded-pill"
+                            alt=""
+                            style={{ width: '50px', height: '50px' }} /></div>
+                        <div className='align-self-center text-center'>
+                            <Button variant="outline-light secondary" className='rounded-pill border text-center text-muted ' size="sm" style={{ width: '200px' }} ><strong>
+                                <div className="d-flex align-items-center " style={{ fontSize: '14px' }}>
+                                    <i class="fas fa-exclamation mx-2"></i><span style={{ fontSize: '14px' }} className="mx-4">Tarun</span><i class="fas fa-caret-down mx-5"></i> </div></strong>  </Button>
+
+                        </div>
+                        <div className='align-self-center text-center mx-1'>
+                            <Button variant="outline-light secondary" className='rounded-pill border text-center text-muted ' size="sm" style={{ width: '120px' }} ><strong>
+                                <div className="d-flex align-items-center " style={{ fontSize: '14px' }}>
+                                    <i class="fas fa-globe-africa mx-1"></i><span style={{ fontSize: '14px' }} className="mx-1">Anyone</span><i class="fas fa-caret-down mx-1"></i> </div></strong>  </Button>
+
+                        </div>
+                    </div>
+
+
+                    {/* Add Post */}
+                    <Modal.Body>
+                        <Form onSubmit={handlePostSubmit}>
+                            <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
+
+                                <Form.Control
+                                    className="text-area"
+                                    as="textarea"
+                                    placeholder="What do you want to talk about? I will complete the styling later today guys"
+                                    rows={3}
+                                    value={text}
+                                    onChange={(e) => onInputChange(e)}
+                                />
+                            </Form.Group>
+                        </Form></Modal.Body>
+                    <Modal.Footer>
+                        {/* <Button variant="success" onClick={}>
+                            Save
+                        </Button> */}
+                        <Button variant="primary" onClick={handlePostSubmit} >
+                            Post
+                        </Button>
+                    </Modal.Footer>
+                </div>
+            </Modal>
+
+
+
+            {/* Single Post Modal */}
+
+            <Modal
+                show={showsingle}
+                onHide={() => setShowSingle(false)}
+                dialogClassName="modal-90w"
+                aria-labelledby="example-custom-modal-styling-title"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-custom-modal-styling-title">
+                        Custom Modal Styling
+                    </Modal.Title>
+                </Modal.Header>
+                <Modal.Body>
+                    <p>
+                        Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
+
+                    </p>
+                </Modal.Body>
+            </Modal>
+
+
+
 
 
 
