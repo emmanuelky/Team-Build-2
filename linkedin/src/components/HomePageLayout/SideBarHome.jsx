@@ -28,7 +28,7 @@ export default function SideBarHome() {
   }, [id]);
 
   return (
-    <div className="d-flex flex-column align-items-center mr-2" id="sidebardiv">
+    <div className="d-flex flex-column align-items-center mr-4" id="sidebardiv">
       <Card style={{ width: "15rem" }} id="leftSidebar" className="mb-2 border makeItStick">
         <Card.Img
           id="sidebarCoverImg"

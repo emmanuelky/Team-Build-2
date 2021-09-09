@@ -9,7 +9,7 @@ import { faArrowRight, faInfoCircle, faPlus} from '@fortawesome/free-solid-svg-i
 const RightSidebar = () => {
 
     return (
-        <div className="d-flex flex-column align-items-center" id="makeItStick">
+        <div className="d-flex flex-column align-items-center ml-3" id="makeItStick">
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 pt-3 pl-3 pr-3 pb-1">
                 <div className="d-flex">
                     <div className="mr-5"><h6>Add to your feed</h6></div>
