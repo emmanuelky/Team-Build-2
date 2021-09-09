@@ -85,7 +85,7 @@ export default function MyNav() {
                     paddingLeft: "0.8rem",
                     paddingRight: "0",
                     border: "0",
-                    backgroundColor: "#DCE6F1",
+                    backgroundColor: "#EEF3F8",
                   }}
                 >
                   <FontAwesomeIcon

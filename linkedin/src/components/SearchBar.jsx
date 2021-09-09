@@ -49,7 +49,7 @@ function SearchBar() {
           className="rounded-right"
           onChange={handleFilter}
           style={{
-            backgroundColor: "#DCE6F1",
+            backgroundColor: "#EEF3F8",
             border: "0",
             height: "38px",
             width: "180px",
