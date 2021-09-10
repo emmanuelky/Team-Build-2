@@ -3,8 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { format, parseISO } from "date-fns";
 import { Card, Button, Modal, Form } from "react-bootstrap"
 import axios from "axios"
-import GetSinglePost from "./GetSinglePost"
-
+import GetSinglePost from "./GetSinglePost";
+import { useRef } from "react";
 
 
 
@@ -13,12 +13,26 @@ const Feeds = () => {
     const [addpost, setAddpost] = useState({
         text: ''
     })
+    const [currentPostId, setCurrentPostId] = useState(undefined)
+    const [imageSelected, setImageSelected] = useState(undefined)
+
+    let inputRef = useRef()
 
 
     //Post Modal
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleClose = () => {
+        setShow(false)
+        setCurrentPostId(undefined)
+        setImageSelected(undefined)
+    };
+    const handleShow = (event) => {
+        setShow(true)
+        if (event.target.id) {
+            console.log(event.target.id)
+            setCurrentPostId(event.target.id)
+        }
+    };
 
 
     const myUsername = 'Tarun sai'
@@ -104,6 +118,40 @@ const Feeds = () => {
         })
     }
 
+ // ADD single image post
+
+ 
+
+  const onImageChange = () => {
+      setImageSelected(inputRef.current.files[0])
+  }
+
+  const upload = async () => {
+    const formData = new FormData();
+    formData.append("post", imageSelected);
+    console.log(imageSelected)
+    let linkString = "https://striveschool-api.herokuapp.com/api/posts/" + currentPostId
+    try {
+      const { data } = await axios.post(
+        linkString,
+        formData,
+        {
+          headers: {
+            // "Content-Type": "multipart/form-data",
+            Authorization:
+              " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+          },
+        }
+      );
+      console.log(data);
+      // .then((response) => {
+      //   console.log(response);
+      // });
+    } catch (error) {
+      console.log(error)
+    }
+  }
+
 
     const handlePostDelete = (e, id) => {
         e.preventDefault();
@@ -185,7 +233,7 @@ const Feeds = () => {
                                 <Link to={`/posts/${post._id}`} className="text-decoration-none">
                                     <span className="my-3 flex-wrap  text-muted t" style={{ fontSize: '13px' }}>{post.text} </span>
                                     <div onClick={() => setShowSingle(true)}>
-                                        {/* <img src={post.user.image} alt="" className="img-fluid" /> */}
+                                        <img src={post.image} alt="" className="img-fluid" />
                                     </div></Link>
 
                                 <div className="mt-3 d-flex text-muted border-top" style={{ fontSize: '18px' }}>
@@ -225,6 +273,11 @@ const Feeds = () => {
                                     {/* Edit Post */}
 
 
+                                    <div onClick={handleShow} id={post._id} className="m-2">
+                                        <i class="far fa-edit text-success align-self-center"></i>
+
+                                        <span className="m-1" id={post._id}>Edit post</span>
+                                    </div>main
 
                                 </div>
                             </div>
@@ -298,7 +351,9 @@ const Feeds = () => {
                         </div>
                         <div className="d-flex m-2 mx-1 text-muted " style={{ fontSize: '25px' }}>
                             <div className="m-2">
-                                <i class="far fa-image"></i>
+                                <label for="upload">
+                                    <i class="far fa-image"><input onChange={onImageChange} accept="image/*" ref={inputRef} type="file" id="upload" style={{display: "none"}} /></i>
+                                </label>
 
                             </div>
 
@@ -338,6 +393,9 @@ const Feeds = () => {
 
                                 <button className="ml-4 btn btn-primary" onClick={handlePostSubmit} >
                                     Post
+                                </button>
+                                <button disabled={!imageSelected || !currentPostId} className="ml-4 btn btn-primary" onClick={upload} >
+                                    Upload Image
                                 </button>
                             </div>
 
