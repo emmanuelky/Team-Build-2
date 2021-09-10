@@ -4,7 +4,7 @@ import { format, parseISO } from "date-fns";
 import { Card, Button, Modal, Form } from "react-bootstrap"
 import axios from "axios"
 import GetSinglePost from "./GetSinglePost"
-import EditPost from "./EditPost";
+
 
 
 
@@ -19,7 +19,7 @@ const Feeds = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
-
+    const myUsername = 'Tarun sai'
 
     // Single Post Modalbox
     const [showsingle, setShowSingle] = useState(false);
@@ -102,11 +102,11 @@ const Feeds = () => {
     }
 
 
-
-
-    //Edit posts
-
-
+    const handlePostDelete = (id) => {
+        const newList = posts.filter((item) => item._id !== id);
+        setPosts(newList);
+        console.log('clicked', id)
+    }
 
     return (
         <>
@@ -203,14 +203,23 @@ const Feeds = () => {
                                         <span className="m-1">Send</span>
                                     </div>
 
+                                    {myUsername === post.user.name && (<>
+                                        <div className="m-2">
+                                            <i class="far fa-edit text-success align-self-center"></i>
+                                            <span className="m-1">Edit</span>
 
+                                        </div>
+                                        <div className="m-2" onClick={(e) => handlePostDelete(post._id)}>
+                                            <i class="far fa-trash-alt text-danger align-self-center "></i>
+
+                                        </div>
+                                    </>
+
+
+                                    )}
                                     {/* Edit Post */}
 
-                                    <div className="m-2">
-                                        {/* <i class="far fa-edit text-success align-self-center"></i>
-                                        <span className="m-1">Edit post</span> */}
-                                        {/* <EditPost /> */}
-                                    </div>
+
 
                                 </div>
                             </div>
@@ -361,7 +370,7 @@ const Feeds = () => {
 
 
 
-
+            {/* <GetMyPosts posts={posts} /> */}
 
         </>
     );

@@ -6,6 +6,10 @@ import { fetchdata, fetchMe, fetchUser } from "../../functions/fetches";
 import { useState } from "react";
 import { useParams } from "react-router";
 
+
+
+
+
 const ProfileSummary = () => {
     const [profileData, setProfileData] = useState({})
     let { id } = useParams()
@@ -47,18 +51,18 @@ const ProfileSummary = () => {
                     <Button className="badge-pill" size="sm" variant="outline-secondary">
                         <strong>More</strong>
                     </Button>
-                </> : 
-                <>
-                    <Button className="mr-1 badge-pill" size="sm" variant="primary">
-                        <strong>Open to</strong>
-                    </Button>
-                    <Button className="mr-1 badge-pill" size="sm" variant="outline-secondary">
-                        <strong>Add section</strong>
-                    </Button>
-                    <Button className="badge-pill" size="sm" variant="outline-secondary">
-                        <strong>More</strong>
-                    </Button>
-                </>}
+                </> :
+                    <>
+                        <Button className="mr-1 badge-pill" size="sm" variant="primary">
+                            <strong>Open to</strong>
+                        </Button>
+                        <Button className="mr-1 badge-pill" size="sm" variant="outline-secondary">
+                            <strong>Add section</strong>
+                        </Button>
+                        <Button className="badge-pill" size="sm" variant="outline-secondary">
+                            <strong>More</strong>
+                        </Button>
+                    </>}
             </div>
             <div id="openToWork" className="mt-3 ml-4">
                 {!id && <FaPen id="pen3" />}
@@ -74,6 +78,7 @@ const ProfileSummary = () => {
                 />
                 <h6 id="striveText">Strive School</h6>
             </div>
+
         </Container>
     );
 }

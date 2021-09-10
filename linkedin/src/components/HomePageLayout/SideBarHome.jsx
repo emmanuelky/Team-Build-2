@@ -1,7 +1,7 @@
 import React from "react";
 import { Card, ListGroup, ListGroupItem } from "react-bootstrap";
 import { useEffect, useState } from "react";
-import { useParams } from "react-router";
+import { useParams, Link } from "react-router-dom";
 import { fetchdata, fetchMe, fetchUser } from "../../functions/fetches";
 import {
   FaHashtag,
@@ -15,6 +15,8 @@ import { faArrowRight, faBookmark, faCalendarWeek, faHashtag, faUsers } from '@f
 export default function SideBarHome() {
   const [profileData, setProfileData] = useState({});
   let { id } = useParams();
+
+  console.log(profileData)
 
   useEffect(async () => {
     let data;
@@ -52,7 +54,7 @@ export default function SideBarHome() {
           />
           <Card.Text className="text-center">
             <span style={{ 'font-size': '16px' }}><strong>{profileData.name} {profileData.surname}</strong></span>
-            <br/>
+            <br />
             <span className="text-muted followers">{profileData.title}</span>
           </Card.Text>
         </Card.Body>
@@ -62,10 +64,12 @@ export default function SideBarHome() {
             <span style={{ 'margin-left': '30px' }}>
               <a href="#">54</a>
             </span>
+            {/* <Link to={`/posts/${profileData.user}/${profileData._id}`}> */}
             <br /> Views of your post{" "}
             <span style={{ 'margin-left': '60px' }}>
               <a href="#">925</a>
             </span>
+            {/* </Link> */}
           </ListGroupItem>
           <ListGroupItem id="userdetails">
             <span className="text-muted">Access exclusive tools & insights</span>
@@ -94,18 +98,18 @@ export default function SideBarHome() {
           </Card.Text>
           <Card.Text>
             <span><a href=""><strong>Groups</strong></a></span>
-            <br/>
+            <br />
             <span className="text-muted"><FontAwesomeIcon icon={faUsers} /> Web Design and Developmen...</span>
             <br />
           </Card.Text>
           <Card.Text>
-          <span><a href=""><strong>Events</strong></a></span> 
-          <br/>
-          <span className="text-muted"><FontAwesomeIcon icon={faUsers} /> Germany's Virtual Recruiting ...</span>
+            <span><a href=""><strong>Events</strong></a></span>
+            <br />
+            <span className="text-muted"><FontAwesomeIcon icon={faUsers} /> Germany's Virtual Recruiting ...</span>
           </Card.Text>
           <Card.Text>
-          <span><a href=""><strong>Followed Hashtags</strong></a></span>
-            <br/>
+            <span><a href=""><strong>Followed Hashtags</strong></a></span>
+            <br />
             <span className="text-muted"><FontAwesomeIcon icon={faHashtag} /> Job Seekers</span>
             <br />
             <span className="text-muted"><FontAwesomeIcon icon={faHashtag} /> ReactJS</span>

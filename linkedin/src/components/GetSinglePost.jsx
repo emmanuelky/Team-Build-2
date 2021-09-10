@@ -8,7 +8,7 @@ import MyNavbar from '../components/MyNavbar'
 import RightSidebar from '../components/RightSidebar'
 import MyFooter from '../components/MyFooter'
 import SideBar from '../components/SideBar'
-import EditPost from '../components/EditPost'
+
 import axios from "axios"
 
 
@@ -93,8 +93,6 @@ const GetSinglePost = () => {
     };
 
 
-
-
     //Edit Post 
     const { text } = addpost
 
@@ -103,31 +101,31 @@ const GetSinglePost = () => {
         setAddpost({ ...addpost, text: e.target.value });
 
     }
-    const handlePostSubmit = async (e) => {
-        e.preventDefault()
-        try {
+    // const handlePostSubmit = async (e) => {
+    //     e.preventDefault()
+    //     try {
 
-            const { data } = await axios.post(
-                `https://striveschool-api.herokuapp.com/api/posts/`, addpost,
-                {
+    //         const { data } = await axios.post(
+    //             `https://striveschool-api.herokuapp.com/api/posts/`, addpost,
+    //             {
 
-                    headers: {
-                        "content-Type": "application/json",
-                        Authorization:
-                            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
-                    },
-                }
-            )
-            // setPosts([...posts, data])
-            setShow(false)
+    //                 headers: {
+    //                     "content-Type": "application/json",
+    //                     Authorization:
+    //                         " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+    //                 },
+    //             }
+    //         )
+    //         // setPosts([...posts, data])
+    //         setShow(false)
 
-        } catch (error) {
-            console.log(error);
-        }
-        setAddpost({
-            text: ''
-        })
-    }
+    //     } catch (error) {
+    //         console.log(error);
+    //     }
+    //     setAddpost({
+    //         text: ''
+    //     })
+    // }
 
 
 
