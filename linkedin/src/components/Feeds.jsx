@@ -120,39 +120,39 @@ const Feeds = () => {
         })
     }
 
- // ADD single image post
+    // ADD single image post
 
- 
 
-  const onImageChange = () => {
-      setImageSelected(inputRef.current.files[0])
-  }
 
-  const upload = async () => {
-    const formData = new FormData();
-    formData.append("post", imageSelected);
-    console.log(imageSelected)
-    let linkString = "https://striveschool-api.herokuapp.com/api/posts/" + currentPostId
-    try {
-      const { data } = await axios.post(
-        linkString,
-        formData,
-        {
-          headers: {
-            // "Content-Type": "multipart/form-data",
-            Authorization:
-              " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
-          },
-        }
-      );
-      console.log(data);
-      // .then((response) => {
-      //   console.log(response);
-      // });
-    } catch (error) {
-      console.log(error)
+    const onImageChange = () => {
+        setImageSelected(inputRef.current.files[0])
     }
-  }
+
+    const upload = async () => {
+        const formData = new FormData();
+        formData.append("post", imageSelected);
+        console.log(imageSelected)
+        let linkString = "https://striveschool-api.herokuapp.com/api/posts/" + currentPostId
+        try {
+            const { data } = await axios.post(
+                linkString,
+                formData,
+                {
+                    headers: {
+                        // "Content-Type": "multipart/form-data",
+                        Authorization:
+                            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+                    },
+                }
+            );
+            console.log(data);
+            // .then((response) => {
+            //   console.log(response);
+            // });
+        } catch (error) {
+            console.log(error)
+        }
+    }
 
 
     const handlePostDelete = (e, id) => {
@@ -277,11 +277,11 @@ const Feeds = () => {
                                     {/* Edit Post */}
 
 
-                                    <div onClick={handleShow} id={post._id} className="m-2">
+                                    {/* <div onClick={handleShow} id={post._id} className="m-2">
                                         <i class="far fa-edit text-success align-self-center"></i>
 
                                         <span className="m-1" id={post._id}>Edit post</span>
-                                    </div>main
+                                    </div> */}
 
                                 </div>
                             </div>
@@ -478,7 +478,7 @@ const Feeds = () => {
                         <div className="d-flex m-2 mx-1 text-muted " style={{ fontSize: '25px' }}>
                             <div className="m-2">
                                 <label for="upload">
-                                    <i class="far fa-image"><input onChange={onImageChange} accept="image/*" ref={inputRef} type="file" id="upload" style={{display: "none"}} /></i>
+                                    <i class="far fa-image"><input onChange={onImageChange} accept="image/*" ref={inputRef} type="file" id="upload" style={{ display: "none" }} /></i>
                                 </label>
 
                             </div>
