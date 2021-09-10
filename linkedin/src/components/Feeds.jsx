@@ -35,6 +35,8 @@ const Feeds = () => {
     };
 
 
+    const myUsername = 'Tarun sai'
+
     // Single Post Modalbox
     const [showsingle, setShowSingle] = useState(false);
 
@@ -89,8 +91,6 @@ const Feeds = () => {
         setAddpost({ ...addpost, text: e.target.value });
 
     }
-
-
     const handlePostSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -107,6 +107,7 @@ const Feeds = () => {
                 }
             )
             setPosts([...posts, data])
+            // fetchPosts()
             setShow(false)
 
         } catch (error) {
@@ -116,6 +117,7 @@ const Feeds = () => {
             text: ''
         })
     }
+
  // ADD single image post
 
  
@@ -149,6 +151,16 @@ const Feeds = () => {
       console.log(error)
     }
   }
+
+
+    const handlePostDelete = (e, id) => {
+        e.preventDefault();
+        const newList = posts.filter((post) => post._id !== id);
+        setPosts(newList);
+        // fetchPosts()
+        console.log('clicked', id)
+    }
+
     return (
         <>
             <div onClick={handleShow} className="d-flex border bg-white mx-3 ml-4 mb-3" style={{ borderRadius: '12px', border: '1px' }}>
@@ -216,10 +228,10 @@ const Feeds = () => {
                                 <span className="text-muted" style={{ fontSize: '11px' }}>1,304 followers</span>
                                 <span className="text-muted" style={{ fontSize: '11px' }}>{fixDate(post.createdAt)} • <i class="fas fa-globe-americas"></i></span>
 
-                                <span className="my-3 flex-wrap" style={{ fontSize: '13px' }}>{post.text} </span>
 
 
-                                <Link to={`/posts/${post._id}`}>
+                                <Link to={`/posts/${post._id}`} className="text-decoration-none">
+                                    <span className="my-3 flex-wrap  text-muted t" style={{ fontSize: '13px' }}>{post.text} </span>
                                     <div onClick={() => setShowSingle(true)}>
                                         <img src={post.image} alt="" className="img-fluid" />
                                     </div></Link>
@@ -244,14 +256,28 @@ const Feeds = () => {
                                         <span className="m-1">Send</span>
                                     </div>
 
+                                    {myUsername === post.user.name && (<>
+                                        <div className="m-2">
+                                            <i class="far fa-edit text-success align-self-center"></i>
+                                            <span className="m-1">Edit</span>
 
+                                        </div>
+                                        <div className="m-2" onClick={(e) => handlePostDelete(e, post._id)}>
+                                            <i class="far fa-trash-alt text-danger align-self-center "></i>
+
+                                        </div>
+                                    </>
+
+
+                                    )}
                                     {/* Edit Post */}
+
 
                                     <div onClick={handleShow} id={post._id} className="m-2">
                                         <i class="far fa-edit text-success align-self-center"></i>
 
                                         <span className="m-1" id={post._id}>Edit post</span>
-                                    </div>
+                                    </div>main
 
                                 </div>
                             </div>
@@ -323,7 +349,7 @@ const Feeds = () => {
                         <div className="text-left ml-3">
                             <div><a href=""><strong>Add Hashtags</strong> </a></div>
                         </div>
-                        <div className="d-flex m-2 mx-1 " style={{ fontSize: '25px' }}>
+                        <div className="d-flex m-2 mx-1 text-muted " style={{ fontSize: '25px' }}>
                             <div className="m-2">
                                 <label for="upload">
                                     <i class="far fa-image"><input onChange={onImageChange} accept="image/*" ref={inputRef} type="file" id="upload" style={{display: "none"}} /></i>
@@ -407,7 +433,7 @@ const Feeds = () => {
 
 
 
-
+            {/* <GetMyPosts posts={posts} /> */}
 
         </>
     );

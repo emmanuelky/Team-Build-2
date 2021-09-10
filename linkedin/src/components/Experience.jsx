@@ -76,7 +76,7 @@ const Experiences = () => {
           </div>
           <div className="mt-3">
             <div className="mb-4">
-            {id ? <React.Fragment /> : <Modalbox isEdit={true} experience={experience} />}
+              {id ? <React.Fragment /> : <Modalbox isEdit={true} experience={experience} />}
               {" "}
             </div>
           </div>

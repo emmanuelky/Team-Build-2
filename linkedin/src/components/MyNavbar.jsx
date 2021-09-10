@@ -32,13 +32,13 @@ import { useState } from "react";
 import { fetchMe } from "../functions/fetches";
 
 export default function MyNav() {
-  let { id } = useParams()
-  const [userData, setUserData] = useState({})
+  let { id } = useParams();
+  const [userData, setUserData] = useState({});
 
   useEffect(async () => {
-    let data = await fetchMe()
-    setUserData(data)
-  }, [])
+    let data = await fetchMe();
+    setUserData(data);
+  }, []);
 
   return (
     <Navbar
@@ -47,21 +47,21 @@ export default function MyNav() {
       className="d-flex justify-content-center w-100 border-bottom bg-white fixed-top py-0 mb-0"
     >
       <Container className="d-flex mx-auto px-2">
-        <Link to='/'>
-
-          <Navbar.Brand >
+        <Link to="/">
+          <Navbar.Brand>
             <svg
               xmlns="http://www.w3.org/2000/svg"
               width="40"
               height="40"
               viewBox="0 0 34 34"
+              style={{ backgroundColor: "white" }}
             >
               <title>linkedin</title>
 
               <g>
                 <path
                   d="M34,2.5v29A2.5,2.5,0,0,1,31.5,34H2.5A2.5,2.5,0,0,1,0,31.5V2.5A2.5,2.5,0,0,1,2.5,0h29A2.5,2.5,0,0,1,34,2.5ZM10,13H5V29h5Zm.45-5.5A2.88,2.88,0,0,0,7.59,4.6H7.5a2.9,2.9,0,0,0,0,5.8h0a2.88,2.88,0,0,0,2.95-2.81ZM29,19.28c0-4.81-3.06-6.68-6.1-6.68a5.7,5.7,0,0,0-5.06,2.58H17.7V13H13V29h5V20.49a3.32,3.32,0,0,1,3-3.58h.19c1.59,0,2.77,1,2.77,3.52V29h5Z"
-                  fill="blue"
+                  fill="#0a66c2"
                 ></path>
               </g>
             </svg>
@@ -100,19 +100,22 @@ export default function MyNav() {
             </Col>
           </Form>
           <Nav className="d-inline-flex ml-auto mt-1">
-
             <Nav.Link fluid className="flex-col text-center py-0">
-              <Link to='/'>
-                <svg height="30" width="30" viewBox="0 0 30 30" className="mx-4">
+              <Link to="/">
+                <svg
+                  height="30"
+                  width="30"
+                  viewBox="0 0 30 30"
+                  className="mx-4"
+                >
                   <path
                     transform="translate(2.5, 2.5)"
                     d="m23 9v2h-2v7c0 1.7-1.3 3-3 3h-4v-6h-4v6h-4c-1.7 0-3-1.3-3-3v-7h-2v-2l11-7z"
                   ></path>
                 </svg>
               </Link>
-              <Link to='/'>
+              <Link to="/">
                 <p className="mb-0 text-secondary">Home</p>
-
               </Link>
             </Nav.Link>
             <Nav.Link href="#link" className="flex-col text-center py-0">
@@ -154,7 +157,7 @@ export default function MyNav() {
             </Nav.Link>
             <div className="flex-col">
               {/* add profile image here<img width="30" src={#}  />*/}
-              <Link to='/user/'>
+              <Link to="/user/">
                 <NavDropdown
                   title={
                     <img
@@ -170,29 +173,83 @@ export default function MyNav() {
                   className="d-flex px-auto mx-4"
                   style={{ padding: "none" }}
                 >
-                  <Link id="dropdownName" to="/user"><Row className="ml-2 mb-1" id="dropdownName">
-                    <img className="mr-2 mb-1" src={userData.image} width="55" height="55" alt="Ndasfame" id="ember30" />
-                    <div className="dropdownUser"><span style={{ fontSize: "14px" }}><strong>{userData.name} {userData.surname}</strong></span>
-                  <br/><span className="">{userData.title}</span></div></Row>
-                  <Button className="rounded-pill ml-2 mr-2 dropdownButton" size="sm" variant="outline-primary">View Profile</Button>
+                  <Link id="dropdownName" to="/user">
+                    <Row className="ml-2 mb-1" id="dropdownName">
+                      <img
+                        className="mr-2 mb-1"
+                        src={userData.image}
+                        width="55"
+                        height="55"
+                        alt="Ndasfame"
+                        id="ember30"
+                      />
+                      <div className="dropdownUser">
+                        <span style={{ fontSize: "14px" }}>
+                          <strong>
+                            {userData.name} {userData.surname}
+                          </strong>
+                        </span>
+                        <br />
+                        <span className="">{userData.title}</span>
+                      </div>
+                    </Row>
+                    <Button
+                      className="rounded-pill ml-2 mr-2 dropdownButton"
+                      size="sm"
+                      variant="outline-primary"
+                    >
+                      View Profile
+                    </Button>
                   </Link>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.1"><strong>Account</strong></NavDropdown.Item>
-                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.1">Settings & Privacy</NavDropdown.Item>
-                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.2">
+                  <NavDropdown.Item href="#action/3.1">
+                    <strong>Account</strong>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="text-muted"
+                    style={{ fontSize: "14px" }}
+                    href="#action/3.1"
+                  >
+                    Settings & Privacy
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="text-muted"
+                    style={{ fontSize: "14px" }}
+                    href="#action/3.2"
+                  >
                     Help
                   </NavDropdown.Item>
-                  <NavDropdown.Item style={{ fontSize: "14px" }} className="text-muted" href="#action/3.3">
+                  <NavDropdown.Item
+                    style={{ fontSize: "14px" }}
+                    className="text-muted"
+                    href="#action/3.3"
+                  >
                     Language
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item href="#action/3.1"><strong>Manage</strong></NavDropdown.Item>
-                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.1">Posts & Activity</NavDropdown.Item>
-                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.2">
+                  <NavDropdown.Item href="#action/3.1">
+                    <strong>Manage</strong>
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="text-muted"
+                    style={{ fontSize: "14px" }}
+                    href="#action/3.1"
+                  >
+                    Posts & Activity
+                  </NavDropdown.Item>
+                  <NavDropdown.Item
+                    className="text-muted"
+                    style={{ fontSize: "14px" }}
+                    href="#action/3.2"
+                  >
                     Job Posting Account
                   </NavDropdown.Item>
                   <NavDropdown.Divider />
-                  <NavDropdown.Item className="text-muted" style={{ fontSize: "14px" }} href="#action/3.4">
+                  <NavDropdown.Item
+                    className="text-muted"
+                    style={{ fontSize: "14px" }}
+                    href="#action/3.4"
+                  >
                     Sign Out
                   </NavDropdown.Item>
                 </NavDropdown>
@@ -213,9 +270,11 @@ export default function MyNav() {
               </svg>
               <div>
                 <NavDropdown title="Work" className="mt-0 mr-0">
-                  <Modal.Dialog  className="ml-3" scrollable="true">
+                  <Modal.Dialog className="ml-3" scrollable="true">
                     <Modal.Header closeButton>
-                      <Modal.Title style={{ fontSize: "15px" }}><strong>Visit More Linkedin Products</strong></Modal.Title>
+                      <Modal.Title style={{ fontSize: "15px" }}>
+                        <strong>Visit More Linkedin Products</strong>
+                      </Modal.Title>
                     </Modal.Header>
 
                     <Modal.Body className="pr-5">
@@ -291,7 +350,10 @@ export default function MyNav() {
                         </thead>
                       </Table>
                       <div>
-                        <h5 style={{ fontSize: "15px" }} className="ml-1 mt-3 mb-3">
+                        <h5
+                          style={{ fontSize: "15px" }}
+                          className="ml-1 mt-3 mb-3"
+                        >
                           {" "}
                           <strong>Linkedin Business Services</strong>
                         </h5>
@@ -300,37 +362,60 @@ export default function MyNav() {
                             {" "}
                             <a style={{ fontSize: "15px" }} href="">
                               Talent Solutions <br />
-                              <span style={{ fontWeight: "normal" }} className="text-muted">Find, attract and recruit talent</span>
+                              <span
+                                style={{ fontWeight: "normal" }}
+                                className="text-muted"
+                              >
+                                Find, attract and recruit talent
+                              </span>
                             </a>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             {" "}
                             <a style={{ fontSize: "15px" }} href="">
                               Sales Solutions <br />
-                              <span style={{ fontWeight: "normal" }} className="text-muted">Unlock sales opportunities</span>
+                              <span
+                                style={{ fontWeight: "normal" }}
+                                className="text-muted"
+                              >
+                                Unlock sales opportunities
+                              </span>
                             </a>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             {" "}
                             <a style={{ fontSize: "15px" }} href="">
                               Post a job for free <br />
-                              <span style={{ fontWeight: "normal" }} className="text-muted">
+                              <span
+                                style={{ fontWeight: "normal" }}
+                                className="text-muted"
+                              >
                                 Get your job in front of quality candidate
                               </span>
                             </a>{" "}
                           </ListGroup.Item>
                           <ListGroup.Item>
                             {" "}
-                            <a style={{ fontSize: "15px" }} href=""> Marketing Solutions<br />
-                              <span style={{ fontWeight: "normal" }} className="text-muted">
+                            <a style={{ fontSize: "15px" }} href="">
+                              {" "}
+                              Marketing Solutions
+                              <br />
+                              <span
+                                style={{ fontWeight: "normal" }}
+                                className="text-muted"
+                              >
                                 Acquire customers and grow your business
-                              </span></a>
+                              </span>
+                            </a>
                           </ListGroup.Item>
                           <ListGroup.Item>
                             {" "}
                             <a style={{ fontSize: "15px" }} href="">
                               Learning Solutions <br />
-                              <span style={{ fontWeight: "normal" }} className="text-muted">
+                              <span
+                                style={{ fontWeight: "normal" }}
+                                className="text-muted"
+                              >
                                 Develop talent across your organization
                               </span>
                             </a>{" "}
@@ -339,7 +424,12 @@ export default function MyNav() {
                       </div>
                     </Modal.Body>
 
-                    <Modal.Footer> <h5 className="pv2 t-14 t-black t-bold">Create a Company Page</h5></Modal.Footer>
+                    <Modal.Footer>
+                      {" "}
+                      <h5 className="pv2 t-14 t-black t-bold">
+                        Create a Company Page
+                      </h5>
+                    </Modal.Footer>
                   </Modal.Dialog>
                 </NavDropdown>
               </div>
