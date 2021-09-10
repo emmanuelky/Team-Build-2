@@ -3,7 +3,8 @@ import { useParams, Link } from "react-router-dom";
 import { format, parseISO } from "date-fns";
 import { Card, Button, Modal, Form } from "react-bootstrap"
 import axios from "axios"
-import GetSinglePost from "./GetSinglePost";
+import GetSinglePost from "./GetSinglePost"
+import EditPost from "./EditPost";
 
 
 
@@ -74,8 +75,6 @@ const Feeds = () => {
         setAddpost({ ...addpost, text: e.target.value });
 
     }
-
-
     const handlePostSubmit = async (e) => {
         e.preventDefault()
         try {
@@ -101,6 +100,12 @@ const Feeds = () => {
             text: ''
         })
     }
+
+
+
+
+    //Edit posts
+
 
 
     return (
@@ -201,10 +206,10 @@ const Feeds = () => {
 
                                     {/* Edit Post */}
 
-                                    <div onClick={handleShow} className="m-2">
-                                        <i class="far fa-edit text-success align-self-center"></i>
-
-                                        <span className="m-1">Edit post</span>
+                                    <div className="m-2">
+                                        {/* <i class="far fa-edit text-success align-self-center"></i>
+                                        <span className="m-1">Edit post</span> */}
+                                        {/* <EditPost /> */}
                                     </div>
 
                                 </div>
@@ -277,7 +282,7 @@ const Feeds = () => {
                         <div className="text-left ml-3">
                             <div><a href=""><strong>Add Hashtags</strong> </a></div>
                         </div>
-                        <div className="d-flex m-2 mx-1 " style={{ fontSize: '25px' }}>
+                        <div className="d-flex m-2 mx-1 text-muted " style={{ fontSize: '25px' }}>
                             <div className="m-2">
                                 <i class="far fa-image"></i>
 

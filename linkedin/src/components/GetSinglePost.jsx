@@ -8,6 +8,11 @@ import MyNavbar from '../components/MyNavbar'
 import RightSidebar from '../components/RightSidebar'
 import MyFooter from '../components/MyFooter'
 import SideBar from '../components/SideBar'
+import EditPost from '../components/EditPost'
+import axios from "axios"
+
+
+
 
 const GetSinglePost = () => {
     const [post, setPosts] = useState([]);
@@ -16,6 +21,28 @@ const GetSinglePost = () => {
 
     const handleClose = () => setShow(true);
 
+
+
+
+    //Edit post
+    const [addpost, setAddpost] = useState({
+        text: ''
+    })
+    const [showedit, setShowEdit] = useState(false);
+
+    const handleCloseEdit = () => setShowEdit(false);
+    const handleShowEdit = () => setShowEdit(true);
+
+
+    //Post Modal
+    const [show, setShow] = useState(false);
+    // const handleClose = () => setShow(false);
+    const handleShow = () => setShow(true);
+
+
+    // Single Post Modalbox
+    // const [show, setShow] = useState(false);
+    // const [showsingle, setShowSingle] = useState(false);
 
     let match = useRouteMatch("/posts/:id");
     console.log(match);
@@ -26,7 +53,6 @@ const GetSinglePost = () => {
     console.log(containInUrlId)
 
 
-    const [show, setShow] = useState(false);
 
     const fetchPosts = async (id) => {
         try {
@@ -66,11 +92,49 @@ const GetSinglePost = () => {
         }
     };
 
+
+
+
+    //Edit Post 
+    const { text } = addpost
+
+    const onInputChange = (e) => {
+        e.preventDefault();
+        setAddpost({ ...addpost, text: e.target.value });
+
+    }
+    const handlePostSubmit = async (e) => {
+        e.preventDefault()
+        try {
+
+            const { data } = await axios.post(
+                `https://striveschool-api.herokuapp.com/api/posts/`, addpost,
+                {
+
+                    headers: {
+                        "content-Type": "application/json",
+                        Authorization:
+                            " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+                    },
+                }
+            )
+            // setPosts([...posts, data])
+            setShow(false)
+
+        } catch (error) {
+            console.log(error);
+        }
+        setAddpost({
+            text: ''
+        })
+    }
+
+
+
+
+
     return (
         <>
-
-
-
             <div>
                 <div className="d-flex flex-column align-items-center flex-wrap">
                     <div
@@ -105,9 +169,11 @@ const GetSinglePost = () => {
                                         @ <span className="text-muted" style={{ fontSize: '14px' }}>{fixDate(post.createdAt)} • <i class="far fa-clock text-success"></i></span>
 
                                     </div>
+
                                     <Modal.Footer>
                                         <Button variant="warning" onClick={handleClick} closeButton>Close</Button>
                                     </Modal.Footer>
+
                                 </Modal.Dialog>
                             </div>
                         </div>
@@ -123,7 +189,6 @@ const GetSinglePost = () => {
                     </div>
                 </div>
             </div>
-            );
 
 
 
@@ -133,25 +198,21 @@ const GetSinglePost = () => {
 
 
 
+            {/* Edit Post */}
 
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-
-            {
-            }
-        </>)
+            {/* <Modal show={showedit} onHide={handleCloseEdit}>
+                <Modal.Header closeButton>
+                    <Modal.Title>Modal heading</Modal.Title>
+                </Modal.Header>
+                <Modal.Body>Woohoo, you're reading this text in a modal!</Modal.Body>
+                <Modal.Footer>
+                    <Button variant="secondary" onClick={handleCloseEdit}>
+                        Close
+                    </Button>
+                </Modal.Footer>
+            </Modal> */}
+        </>
+    )
 }
 
 export default withRouter(GetSinglePost)
