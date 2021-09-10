@@ -52,6 +52,7 @@ function SearchBar() {
             height: "38px",
             width: "180px",
             justifyContent: "center",
+            outline: "none"
           }}
         />
       </div>
