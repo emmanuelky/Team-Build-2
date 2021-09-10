@@ -69,10 +69,9 @@ function SearchBar() {
                     }}
                     onClick={() => onInputClick(true)}>
                       <img
-                        style={{ width: "25px", height: "25px" }}
+                        style={{ width: "25px", height: "25px", borderRadius: "50%" }}
                         src={profile.image}
-                      />
-                      {profile.name}
+                      /> <span className="ml-2" style={{ color: "black", fontSize: "14px" }}><strong>{profile.name}</strong></span>
                     </ListGroup.Item>
                   </Link>
                 </div>
