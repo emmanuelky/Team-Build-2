@@ -94,13 +94,13 @@ const GetSinglePost = () => {
 
 
     //Edit Post 
-    const { text } = addpost
+    // const { text } = addpost
 
-    const onInputChange = (e) => {
-        e.preventDefault();
-        setAddpost({ ...addpost, text: e.target.value });
+    // const onInputChange = (e) => {
+    //     e.preventDefault();
+    //     setAddpost({ ...addpost, text: e.target.value });
 
-    }
+    // }
     // const handlePostSubmit = async (e) => {
     //     e.preventDefault()
     //     try {

@@ -19,6 +19,8 @@ const Feeds = () => {
     const [show, setShow] = useState(false);
     const handleClose = () => setShow(false);
     const handleShow = () => setShow(true);
+
+
     const myUsername = 'Tarun sai'
 
     // Single Post Modalbox
@@ -91,6 +93,7 @@ const Feeds = () => {
                 }
             )
             setPosts([...posts, data])
+            // fetchPosts()
             setShow(false)
 
         } catch (error) {
@@ -102,9 +105,11 @@ const Feeds = () => {
     }
 
 
-    const handlePostDelete = (id) => {
-        const newList = posts.filter((item) => item._id !== id);
+    const handlePostDelete = (e, id) => {
+        e.preventDefault();
+        const newList = posts.filter((post) => post._id !== id);
         setPosts(newList);
+        // fetchPosts()
         console.log('clicked', id)
     }
 
@@ -175,12 +180,12 @@ const Feeds = () => {
                                 <span className="text-muted" style={{ fontSize: '11px' }}>1,304 followers</span>
                                 <span className="text-muted" style={{ fontSize: '11px' }}>{fixDate(post.createdAt)} • <i class="fas fa-globe-americas"></i></span>
 
-                                <span className="my-3 flex-wrap" style={{ fontSize: '13px' }}>{post.text} </span>
 
 
-                                <Link to={`/posts/${post._id}`}>
+                                <Link to={`/posts/${post._id}`} className="text-decoration-none">
+                                    <span className="my-3 flex-wrap  text-muted t" style={{ fontSize: '13px' }}>{post.text} </span>
                                     <div onClick={() => setShowSingle(true)}>
-                                        <img src={post.user.image} alt="" className="img-fluid" />
+                                        {/* <img src={post.user.image} alt="" className="img-fluid" /> */}
                                     </div></Link>
 
                                 <div className="mt-3 d-flex text-muted border-top" style={{ fontSize: '18px' }}>
@@ -209,7 +214,7 @@ const Feeds = () => {
                                             <span className="m-1">Edit</span>
 
                                         </div>
-                                        <div className="m-2" onClick={(e) => handlePostDelete(post._id)}>
+                                        <div className="m-2" onClick={(e) => handlePostDelete(e, post._id)}>
                                             <i class="far fa-trash-alt text-danger align-self-center "></i>
 
                                         </div>
