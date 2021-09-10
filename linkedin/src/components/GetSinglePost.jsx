@@ -88,7 +88,7 @@ const GetSinglePost = () => {
                                 <SideBar />
                             </div>
                         </div>
-                        <div className="flex-column ml-4 flex-wrap feeds">
+                        <div className="flex-column ml-3 flex-wrap feeds">
                             <div className="sticky mt-5 ml-5 shadow-lg rounded-pill"  >
                                 <Modal.Dialog className="sticky post-modal shadow-lg rounded-pill" show={show} onHide={handleClose} >
                                     <Modal.Header closeButton onClick={handleClick}>
