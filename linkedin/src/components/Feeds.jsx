@@ -101,7 +101,34 @@ const Feeds = () => {
             text: ''
         })
     }
+ // ADD single image post
 
+ const [imageSelected, setImageSelected] = useState({
+    image: " ",
+  });
+
+  const upload = async () => {
+    const formData = new FormData();
+    formData.append("file", imageSelected);
+    try {
+      const { data } = await axios.post(
+        "https://striveschool-api.herokuapp.com/api/posts/613639f67be6c10015f9dbd4",
+        formData,
+        {
+          headers: {
+            "content-Type": "application/json",
+            Authorization:
+              " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
+          },
+        }
+      );
+      console.log(data);
+      // .then((response) => {
+      //   console.log(response);
+      // });
+    } catch (error) {
+      console.log(error);
+    }
 
     return (
         <>
