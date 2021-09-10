@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import '../index.css'
 import { Button } from 'react-bootstrap'
 import { useEffect } from 'react'
@@ -27,9 +27,9 @@ const SideBar = () => {
     }, [])
 
     return (
-        <div className="d-flex flex-column align-items-center">
+        <div className="d-flex flex-column align-items-center sticky-top">
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 p-3">
-                <div className="d-flex">
+                <div className="d-flex ">
                     <div className="text-muted mr-5 ml-2"><span style={{ 'font-size': '14px' }}>Edit public profile & url</span></div>
                     <div className="text-muted ml-5"><i class="fas fa-question-circle"></i></div>
                 </div>
@@ -39,7 +39,7 @@ const SideBar = () => {
                     <div className="text-muted ml-3"><i class="fas fa-question-circle"></i></div>
                 </div>
             </div>
-            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mt-3 mx-1 p-3">
+            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mt-3 mx-1 p-3 sticky-top">
                 <div className="text-right">
                     <span style={{ 'font-size': '12px' }}>Ad •••</span>
                 </div>

@@ -1,164 +1,132 @@
 import { React, useEffect, useState } from "react";
-import { useParams } from "react-router-dom";
+import { useParams, useRouteMatch, withRouter, useHistory } from "react-router-dom";
 import { format, parseISO } from "date-fns";
 import { Card, Button, Modal, Form } from "react-bootstrap"
-import axios from "axios"
+import './HomePageLayout/HomePage.css'
+import MyNavbar from '../components/MyNavbar'
+// import SideBarHome from './HomePageLayout/SideBarHome'
+import RightSidebar from '../components/RightSidebar'
+import MyFooter from '../components/MyFooter'
+import SideBar from '../components/SideBar'
 
-const GetSinglePost = ({ id }) => {
-    const [posts, setPosts] = useState([]);
-    const [showsingle, setShowSingle] = useState(false);
+const GetSinglePost = () => {
+    const [post, setPosts] = useState([]);
 
-    // const [addpost, setAddpost] = useState({
-    //     text: ''
-    // })
+    let history = useHistory();
 
-    // let { id } = useParams();
-
-    // console.log(id)
-
-
-
-    useEffect(() => {
-        handlePostSubmit()
-    }, [id])
+    const handleClose = () => setShow(true);
 
 
-    const handlePostSubmit = async (id) => {
-        // e.preventDefault()
+    let match = useRouteMatch("/posts/:id");
+    console.log(match);
+    let id = match.params.id
+
+    let containInUrlId = id.slice(15)
+
+    console.log(containInUrlId)
+
+
+    const [show, setShow] = useState(false);
+
+    const fetchPosts = async (id) => {
         try {
-
-            const { data } = await axios.get(
+            const response = await fetch(
                 `https://striveschool-api.herokuapp.com/api/posts/${id}`,
                 {
-
+                    method: "GET",
                     headers: {
-                        "content-Type": "application/json",
                         Authorization:
                             " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
                     },
                 }
-            )
-            // setPosts([...posts, data])
-            setPosts([data])
-            console.log(posts)
-            // setShow(false)
-
+            );
+            const data = await response.json();
+            // console.log(data);
+            setPosts(data)
+            console.log(post)
         } catch (error) {
             console.log(error);
         }
-        // setAddpost({
-        //     text: ''
-        // })
+    }
+    useEffect(() => {
+        fetchPosts(id)
+
+    }, [id]);
+
+    const handleClick = () => {
+        history.push("/");
     }
 
-
-
-
-
-
-
-
-
-    // useEffect(async () => {
-    //     let data
-    //     if (id) {
-    //         data = await fetchSinglePosts(id)
-    //         setPosts(data)
-    //         console.log(data)
-    //     }
-    // else {
-    //     data = await fetchMe()
-    //     setProfileData(data)
-    // }
-    // }, [id]);
-
-    // const fetchSinglePosts = async (id) => {
-    //     try {
-    //         const response = await fetch(
-    //             `https://striveschool-api.herokuapp.com/api/posts/${id}`,
-    //             {
-    //                 method: "GET",
-    //                 headers: {
-    //                     Authorization:
-    //                         " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
-    //                 },
-    //             }
-    //         );
-    //         if (response.ok) {
-    //             const data = await response.json();
-    //             console.log(data);
-    //             return data
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-    // const fetchSinglePosts = async (id) => {
-    //     try {
-    //         const response = await fetch(
-    //             `https://striveschool-api.herokuapp.com/api/posts/${id}`,
-    //             {
-    //                 method: "GET",
-    //                 headers: {
-    //                     Authorization:
-    //                         " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
-    //                 },
-    //             }
-    //         );
-    //         if (response.ok) {
-    //             const data = await response.json();
-    //             console.log(id);
-    //             setPosts(data)
-    //         }
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    // }
-
-
-    // useEffect(() => {
-
-    //     fetchSinglePosts()
-
-    // }, [id]);
+    const fixDate = (date) => {
+        try {
+            return format(parseISO(date), "h:mm a");
+            // MM/dd/yyyy 
+        } catch {
+            return `Present`;
+        }
+    };
 
     return (
-        <div>
-
-
-            {/* <Modal
-                show={showsingle}
-                onHide={() => setShowSingle(false)}
-                dialogClassName="modal-90w"
-                aria-labelledby="example-custom-modal-styling-title"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-custom-modal-styling-title">
-
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
+        <>
 
 
 
-                    <div><h3>post</h3></div>
+            <div>
+                <div className="d-flex flex-column align-items-center flex-wrap">
+                    <div
+                        className="d-flex flex-wraptext-center mb-4"
+                        style={{ width: "100vw" }}
+                    >
+                        <MyNavbar />
+                        <h2>navbar</h2>
+                    </div>
 
-                    <div><h3>{posts._id}</h3></div>
+                    <div className="d-flex flex-wrap my-5">
+                        <div className="flex-column flex-wrap home-sidebar-2 m-1">
+                            <div id="makeItStick" className=" mb-3">
+                                {/* <SideBarHome /> */}
+                                <SideBar />
+                            </div>
+                        </div>
+                        <div className="flex-column ml-5 flex-wrap feeds sticky-top">
+                            <div className="sticky-top mt-5 ml-3 shadow-lg rounded-pill"  >
+                                <Modal.Dialog className="sticky-top post-modal shadow-lg rounded-pill" show={show} onHide={handleClose} >
+                                    <Modal.Header closeButton onClick={handleClick}>
+                                        {/* <Modal.Title className='text-center post-modal'>Post</Modal.Title> */}
+                                    </Modal.Header>
 
-                </Modal.Body>
-            </Modal> */}
-            {/* {
-                posts.map(post => post(<>
-                    <div><h3>hard</h3></div>
+                                    <Modal.Body className='text-center post-modal'>
+                                        <pre></pre> <h3> {post.username}</h3>
+                                        <h6>  <q>{post.text}</q></h6>
 
-                    <div><h3>{posts._id}</h3></div>
-                </>
-                ))
+                                    </Modal.Body>
+
+                                    <div className='text-center mt-5'>
+                                        @ <span className="text-muted" style={{ fontSize: '14px' }}>{fixDate(post.createdAt)} • <i class="far fa-clock text-success"></i></span>
+
+                                    </div>
+                                    <Modal.Footer>
+                                        <Button variant="primary" onClick={handleClick} closeButton>Close</Button>
+                                    </Modal.Footer>
+                                </Modal.Dialog>
+                            </div>
+                        </div>
+                        <div className="home-sidebar-1 ml-3">
+                            <RightSidebar />
+                        </div>
+                    </div>
+
+                    <div className="w-100">
+                        <div>
+                            <MyFooter />
+                        </div>
+                    </div>
+                </div>
+            </div>
+            );
 
 
 
-            } */}
 
 
 
@@ -178,27 +146,12 @@ const GetSinglePost = ({ id }) => {
 
 
 
-            {/* <Modal
-                show={showsingle}
-                onHide={() => setShowSingle(false)}
-                dialogClassName="modal-90w"
-                aria-labelledby="example-custom-modal-styling-title"
-            >
-                <Modal.Header closeButton>
-                    <Modal.Title id="example-custom-modal-styling-title">
 
-                    </Modal.Title>
-                </Modal.Header>
-                <Modal.Body>
-                    <p>
-                        Ipsum molestiae natus adipisci modi eligendi? Debitis amet quae unde
 
-                    </p>
-                </Modal.Body>
-            </Modal> */}
 
-        </div>
-    )
+            {
+            }
+        </>)
 }
 
-export default GetSinglePost
+export default withRouter(GetSinglePost)

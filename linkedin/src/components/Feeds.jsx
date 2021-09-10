@@ -103,39 +103,6 @@ const Feeds = () => {
     }
 
 
-    //Get Single post
-
-    // useEffect(() => {
-    //     getSinglePost()
-    // }, [])
-
-    // const getSinglePost = async () => {
-    //     // e.preventDefault()
-    //     try {
-
-    //         const { postdata } = await axios.get(
-    //             `https://striveschool-api.herokuapp.com/api/posts/${id}`,
-    //             {
-
-    //                 headers: {
-    //                     "content-Type": "application/json",
-    //                     Authorization:
-    //                         " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
-    //                 },
-    //             }
-    //         )
-    //         setPosts(postdata)
-    //         console.log(postdata)
-    //         setShow(false)
-
-    //     } catch (error) {
-    //         console.log(error);
-    //     }
-    //     setAddpost({
-    //         text: ''
-    //     })
-    // }
-
     return (
         <>
             <div onClick={handleShow} className="d-flex border bg-white mx-3 ml-4 mb-3" style={{ borderRadius: '12px', border: '1px' }}>
@@ -189,7 +156,7 @@ const Feeds = () => {
 
             {posts.flat(20).reverse().slice(0, 10).map(post => (<>
 
-                <div key={post._id} className="d-flex justify-content-between border bg-white mx-3 ml-4 mb-2" style={{ borderRadius: '12px', border: '1px' }}>
+                <div key={post.user._id} className="d-flex justify-content-between border bg-white mx-3 ml-4 mb-2" style={{ borderRadius: '12px', border: '1px' }}>
                     <div className="mt-3 mx-3">
                         <div className="d-flex">
                             <img
@@ -205,15 +172,12 @@ const Feeds = () => {
 
                                 <span className="my-3 flex-wrap" style={{ fontSize: '13px' }}>{post.text} </span>
 
-                                {/* View Single Post */}
-                                {/* onClick={getSinglePost} */}
 
+                                <Link to={`/posts/${post._id}`}>
+                                    <div onClick={() => setShowSingle(true)}>
+                                        <img src={post.user.image} alt="" className="img-fluid" />
+                                    </div></Link>
 
-                                {/* <Link to={`/posts/${post._id}`}> */}
-                                <div onClick={() => setShowSingle(true)}>
-                                    <img src={post.user.image} alt="" className="img-fluid" />
-                                </div>
-                                {/* </Link> */}
                                 <div className="mt-3 d-flex text-muted border-top" style={{ fontSize: '18px' }}>
                                     <div className="m-2">
                                         <i class="far fa-thumbs-up"></i>
@@ -319,30 +283,31 @@ const Feeds = () => {
             </Modal>
 
 
-            {posts.flat(20).reverse().slice(0, 10).map(post => (<>
-
-                <Modal
-                    show={showsingle}
-                    onHide={() => setShowSingle(false)}
-                    dialogClassName="modal-90w"
-                    aria-labelledby="example-custom-modal-styling-title"
-                >
-                    <Modal.Header closeButton>
-                        <Modal.Title id="example-custom-modal-styling-title">
-
-                        </Modal.Title>
-                    </Modal.Header >
-                    <Modal.Body>
 
 
-                        <GetSinglePost id={post._id} />
+            <Modal
+                show={showsingle}
+                onHide={() => setShowSingle(false)}
+                dialogClassName="modal-90w"
+                aria-labelledby="example-custom-modal-styling-title"
+            >
+                <Modal.Header closeButton>
+                    <Modal.Title id="example-custom-modal-styling-title">
+
+                    </Modal.Title>
+                </Modal.Header >
+                <Modal.Body>
+
+                    {/* {posts} */}
+                    {/* {console.log(posts.flat(20))} */}
+
+                    <GetSinglePost />
 
 
-                    </Modal.Body>
-                </Modal >
+                </Modal.Body>
+            </Modal >
 
 
-            </>))}
 
 
 
