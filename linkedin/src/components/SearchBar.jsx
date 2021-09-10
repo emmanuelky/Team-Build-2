@@ -1,14 +1,13 @@
 import React, { useEffect, useState } from "react";
-import { Link } from 'react-router-dom'
+import { Link } from "react-router-dom";
 
 import { fetchdata } from "../functions/fetches";
 import { ListGroup } from "react-bootstrap";
 
-
 function SearchBar() {
   const [profile, setProfile] = useState([]);
   const [filteredData, setfilteredData] = useState([]);
-  const [hasBeenClicked, setHasBeenClicked] = useState(false)
+  const [hasBeenClicked, setHasBeenClicked] = useState(false);
 
   const fetcheddata = async () => {
     let data = await fetchdata();
@@ -30,14 +29,13 @@ function SearchBar() {
       setfilteredData(newFilter);
     } else {
       setfilteredData([]);
-
     }
   };
 
   const onInputClick = (hasItBeenClicked) => {
-    console.log(hasBeenClicked)
-    setHasBeenClicked(hasItBeenClicked)
-  }
+    console.log(hasBeenClicked);
+    setHasBeenClicked(hasItBeenClicked);
+  };
 
   return (
     <div>
@@ -53,6 +51,7 @@ function SearchBar() {
             border: "0",
             height: "38px",
             width: "180px",
+            justifyContent: "center",
           }}
         />
       </div>
@@ -68,7 +67,7 @@ function SearchBar() {
               // }}
               >
                 <div>
-                  <Link to={`/user/${profile._id}`} >
+                  <Link to={`/user/${profile._id}`}>
                     <ListGroup.Item onClick={() => onInputClick(true)}>
                       <img
                         style={{ width: "25px", height: "25px" }}
