@@ -51,7 +51,6 @@ function SearchBar() {
             border: "0",
             height: "38px",
             width: "180px",
-            justifyContent: "center",
             outline: "none"
           }}
         />
@@ -61,15 +60,14 @@ function SearchBar() {
           {filteredData.slice(0, 10).map((profile) => {
             return (
               <ListGroup
-              // style={{
-              //   width: "500px",
-              //   height: "200px",
-              //   justifyContent: "center",
-              // }}
               >
                 <div>
                   <Link to={`/user/${profile._id}`}>
-                    <ListGroup.Item onClick={() => onInputClick(true)}>
+                    <ListGroup.Item 
+                    style={{
+                    textAlign: "left",
+                    }}
+                    onClick={() => onInputClick(true)}>
                       <img
                         style={{ width: "25px", height: "25px" }}
                         src={profile.image}
