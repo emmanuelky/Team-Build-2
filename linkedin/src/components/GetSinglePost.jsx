@@ -88,14 +88,14 @@ const GetSinglePost = () => {
                                 <SideBar />
                             </div>
                         </div>
-                        <div className="flex-column ml-5 flex-wrap feeds sticky-top">
-                            <div className="sticky-top mt-5 ml-3 shadow-lg rounded-pill"  >
-                                <Modal.Dialog className="sticky-top post-modal shadow-lg rounded-pill" show={show} onHide={handleClose} >
+                        <div className="flex-column ml-4 flex-wrap feeds">
+                            <div className="sticky mt-5 ml-5 shadow-lg rounded-pill"  >
+                                <Modal.Dialog className="sticky post-modal shadow-lg rounded-pill" show={show} onHide={handleClose} >
                                     <Modal.Header closeButton onClick={handleClick}>
                                         {/* <Modal.Title className='text-center post-modal'>Post</Modal.Title> */}
                                     </Modal.Header>
 
-                                    <Modal.Body className='text-center post-modal'>
+                                    <Modal.Body className='text-center border-lg rounded-pill post-modal'>
                                         <pre></pre> <h3> {post.username}</h3>
                                         <h6>  <q>{post.text}</q></h6>
 
@@ -106,7 +106,7 @@ const GetSinglePost = () => {
 
                                     </div>
                                     <Modal.Footer>
-                                        <Button variant="primary" onClick={handleClick} closeButton>Close</Button>
+                                        <Button variant="warning" onClick={handleClick} closeButton>Close</Button>
                                     </Modal.Footer>
                                 </Modal.Dialog>
                             </div>

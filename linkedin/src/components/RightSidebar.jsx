@@ -1,10 +1,10 @@
-import React, {useState} from 'react'
+import React, { useState } from 'react'
 import '../index.css'
 import { Button } from 'react-bootstrap'
 import { useEffect } from 'react'
 import { fetchdata } from '../functions/fetches'
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome'
-import { faArrowRight, faInfoCircle, faPlus} from '@fortawesome/free-solid-svg-icons'
+import { faArrowRight, faInfoCircle, faPlus } from '@fortawesome/free-solid-svg-icons'
 
 const RightSidebar = () => {
 
@@ -32,7 +32,7 @@ const RightSidebar = () => {
                         <div className='d-flex'>
                             <img id="rightbarImg" src="https://ccweb.imgix.net/https%3A%2F%2Fwww.classcentral.com%2Fimages%2Flogos%2Fproviders%2Ffreecodecamp-sq.png?auto=format&cs=strip&fit=&h=120&ixlib=php-3.3.0&w=120&s=1898b8b8f099b64783c3ef348bb64d16" alt="" />
                             <div className='ml-3 d-flex flex-column text-left'>
-                            <span style={{ 'font-size': '14px' }}><strong>freeCodeCamp</strong></span>
+                                <span style={{ 'font-size': '14px' }}><strong>freeCodeCamp</strong></span>
                                 <span className="followers text-muted">Company • E-Learning</span>
                                 <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong><FontAwesomeIcon icon={faPlus} /> Follow</strong></Button>
                             </div>
@@ -40,22 +40,22 @@ const RightSidebar = () => {
                     </div>
                 </div>
                 <div className='d-flex justify-content-between'>
-                <div className='mt-3'>
-                    <div className='d-flex'>
-                        <img id="rightbarImg" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" />
-                        <div className='ml-3 d-flex flex-column text-left'>
-                        <span style={{ 'font-size': '14px' }}><strong>GitHub</strong></span>
-                            <span className="followers text-muted">Company • Computer Software</span>
-                            <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong><FontAwesomeIcon icon={faPlus} /> Follow</strong></Button>
+                    <div className='mt-3'>
+                        <div className='d-flex'>
+                            <img id="rightbarImg" src="https://github.githubassets.com/images/modules/logos_page/GitHub-Mark.png" alt="" />
+                            <div className='ml-3 d-flex flex-column text-left'>
+                                <span style={{ 'font-size': '14px' }}><strong>GitHub</strong></span>
+                                <span className="followers text-muted">Company • Computer Software</span>
+                                <Button className="rounded-pill mt-2 btn-width" size="sm" variant="outline-secondary"><strong><FontAwesomeIcon icon={faPlus} /> Follow</strong></Button>
+                            </div>
                         </div>
                     </div>
                 </div>
-                </div>
                 <div className='d-flex'>
-                            <div className='m-1 d-flex flex-column text-left'>
-                                <h6 className="text-muted mt-2">View all recommendations <FontAwesomeIcon icon={faArrowRight} /></h6>
-                            </div>
-                        </div>
+                    <div className='m-1 d-flex flex-column text-left'>
+                        <h6 className="text-muted mt-2">View all recommendations <FontAwesomeIcon icon={faArrowRight} /></h6>
+                    </div>
+                </div>
             </div>
 
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mx-1 mt-2 pl-3 pr-3 pb-1 pt-3">
@@ -104,7 +104,7 @@ const RightSidebar = () => {
             </div>
 
             <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mt-2 mx-1 pl-2 pr-2">
-                <img src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg"/>
+                <img src="https://static-exp1.licdn.com/scds/common/u/images/promo/ads/li_evergreen_jobs_ad_300x250_v1.jpg" />
             </div>
 
         </div >
