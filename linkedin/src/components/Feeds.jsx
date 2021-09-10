@@ -4,6 +4,7 @@ import { format, parseISO } from "date-fns";
 import { Card, Button, Modal, Form } from "react-bootstrap"
 import axios from "axios"
 import GetSinglePost from "./GetSinglePost";
+import { useRef } from "react";
 
 
 
@@ -12,12 +13,26 @@ const Feeds = () => {
     const [addpost, setAddpost] = useState({
         text: ''
     })
+    const [currentPostId, setCurrentPostId] = useState(undefined)
+    const [imageSelected, setImageSelected] = useState(undefined)
+
+    let inputRef = useRef()
 
 
     //Post Modal
     const [show, setShow] = useState(false);
-    const handleClose = () => setShow(false);
-    const handleShow = () => setShow(true);
+    const handleClose = () => {
+        setShow(false)
+        setCurrentPostId(undefined)
+        setImageSelected(undefined)
+    };
+    const handleShow = (event) => {
+        setShow(true)
+        if (event.target.id) {
+            console.log(event.target.id)
+            setCurrentPostId(event.target.id)
+        }
+    };
 
 
     // Single Post Modalbox
@@ -103,20 +118,24 @@ const Feeds = () => {
     }
  // ADD single image post
 
- const [imageSelected, setImageSelected] = useState({
-    image: " ",
-  });
+ 
+
+  const onImageChange = () => {
+      setImageSelected(inputRef.current.files[0])
+  }
 
   const upload = async () => {
     const formData = new FormData();
-    formData.append("file", imageSelected);
+    formData.append("post", imageSelected);
+    console.log(imageSelected)
+    let linkString = "https://striveschool-api.herokuapp.com/api/posts/" + currentPostId
     try {
       const { data } = await axios.post(
-        "https://striveschool-api.herokuapp.com/api/posts/613639f67be6c10015f9dbd4",
+        linkString,
         formData,
         {
           headers: {
-            "content-Type": "application/json",
+            // "Content-Type": "multipart/form-data",
             Authorization:
               " Bearer eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJfaWQiOiI2MTM2MzlmNjdiZTZjMTAwMTVmOWRiZDQiLCJpYXQiOjE2MzA5NDM3MzUsImV4cCI6MTYzMjE1MzMzNX0.aqatGQ0--T-ZQWZJQeYBJ0q7JsbxuWlScmsooaM_1ZE",
           },
@@ -127,9 +146,9 @@ const Feeds = () => {
       //   console.log(response);
       // });
     } catch (error) {
-      console.log(error);
+      console.log(error)
     }
-
+  }
     return (
         <>
             <div onClick={handleShow} className="d-flex border bg-white mx-3 ml-4 mb-3" style={{ borderRadius: '12px', border: '1px' }}>
@@ -228,10 +247,10 @@ const Feeds = () => {
 
                                     {/* Edit Post */}
 
-                                    <div onClick={handleShow} className="m-2">
+                                    <div onClick={handleShow} id={post._id} className="m-2">
                                         <i class="far fa-edit text-success align-self-center"></i>
 
-                                        <span className="m-1">Edit post</span>
+                                        <span className="m-1" id={post._id}>Edit post</span>
                                     </div>
 
                                 </div>
@@ -306,7 +325,9 @@ const Feeds = () => {
                         </div>
                         <div className="d-flex m-2 mx-1 " style={{ fontSize: '25px' }}>
                             <div className="m-2">
-                                <i class="far fa-image"></i>
+                                <label for="upload">
+                                    <i class="far fa-image"><input onChange={onImageChange} accept="image/*" ref={inputRef} type="file" id="upload" style={{display: "none"}} /></i>
+                                </label>
 
                             </div>
 
@@ -346,6 +367,9 @@ const Feeds = () => {
 
                                 <button className="ml-4 btn btn-primary" onClick={handlePostSubmit} >
                                     Post
+                                </button>
+                                <button disabled={!imageSelected || !currentPostId} className="ml-4 btn btn-primary" onClick={upload} >
+                                    Upload Image
                                 </button>
                             </div>
 
