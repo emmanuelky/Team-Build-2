@@ -221,7 +221,7 @@ const Feeds = () => {
 
                                 <Link to={`/posts/${post._id}`}>
                                     <div onClick={() => setShowSingle(true)}>
-                                        <img src={post.user.image} alt="" className="img-fluid" />
+                                        <img src={post.image} alt="" className="img-fluid" />
                                     </div></Link>
 
                                 <div className="mt-3 d-flex text-muted border-top" style={{ fontSize: '18px' }}>
