@@ -39,7 +39,7 @@ const SideBar = () => {
                     <div className="text-muted ml-3"><i class="fas fa-question-circle"></i></div>
                 </div>
             </div>
-            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mt-3 mx-1 p-3 sticky-top">
+            <div id="sideBorderRadius" className="d-flex flex-column border sidebar bg-white mt-3 mx-1 p-3">
                 <div className="text-right">
                     <span style={{ 'font-size': '12px' }}>Ad •••</span>
                 </div>

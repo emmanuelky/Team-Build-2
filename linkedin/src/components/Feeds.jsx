@@ -615,7 +615,7 @@ const Feeds = () => {
                 </button>
                 <button
                   disabled={!imageSelected || !currentPostId}
-                  className="ml-4 btn btn-primary"
+                  className="ml-4 mt-2 btn btn-primary"
                   onClick={upload}
                 >
                   Upload Image
