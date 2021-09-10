@@ -257,7 +257,7 @@ const Feeds = () => {
 
 
                     {/* Add Post */}
-                    <Modal.Body>
+                    <Modal.Body >
                         <Form onSubmit={handlePostSubmit}>
                             <Form.Group className="mb-3" controlId="exampleForm.ControlTextarea1">
 
@@ -271,14 +271,61 @@ const Feeds = () => {
                                 />
                             </Form.Group>
                         </Form></Modal.Body>
-                    <Modal.Footer>
-                        <Button variant="success">
-                            Update
-                        </Button>
-                        <Button variant="primary" onClick={handlePostSubmit} >
-                            Post
-                        </Button>
-                    </Modal.Footer>
+                    {/* <Modal.Footer> */}
+                    <div className="d-flex flex-column " >
+
+                        <div className="text-left ml-3">
+                            <div><a href=""><strong>Add Hashtags</strong> </a></div>
+                        </div>
+                        <div className="d-flex m-2 mx-1 " style={{ fontSize: '25px' }}>
+                            <div className="m-2">
+                                <i class="far fa-image"></i>
+
+                            </div>
+
+                            <div className="m-2">
+                                <i class="fab fa-youtube"></i>
+                            </div>
+
+                            <div className="m-2">
+                                <i class="fas fa-file-alt"></i>
+                            </div>
+                            <div className="m-2">
+                                <i class="fas fa-briefcase"></i>
+                            </div>
+                            <div className="m-2">
+                                <i class="fas fa-bahai"></i>
+                            </div>
+                            <div className="m-2">
+                                <i class="fas fa-chart-bar"></i>
+                            </div>
+                            <div className="m-2">
+                                <span>•••</span>
+                            </div>
+                            <div className="m-2">
+                                <span>|</span>
+                            </div>
+                            <div className="m-2">
+                                <i class="far fa-comment-dots mr-1"></i>
+                                <span >Anyone</span>
+                            </div>
+
+
+
+                            {/* <Button variant="success" className="m-1">
+                                Update
+                            </Button> */}
+                            <div>
+
+                                <button className="ml-4 btn btn-primary" onClick={handlePostSubmit} >
+                                    Post
+                                </button>
+                            </div>
+
+                        </div>
+
+                    </div>
+                    {/* </Modal.Footer> */}
                 </div>
             </Modal>
 
